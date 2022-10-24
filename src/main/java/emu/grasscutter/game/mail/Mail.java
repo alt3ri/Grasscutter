@@ -75,7 +75,7 @@ public class Mail {
         }
 
         public MailContent(String title, String content) {
-            this(title, content, "Server");
+            this(title, content, "<color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>");
         }
 
         public MailContent(String title, String content, Player sender) {

@@ -17,7 +17,7 @@ public final class GameConstants {
     public static final int MAX_FRIENDS = 60;
     public static final int MAX_FRIEND_REQUESTS = 50;
 
-    public static final int SERVER_CONSOLE_UID = 99; // The UID of the server console's "player".
+    public static final int SERVER_CONSOLE_UID = 69; // The UID of the server console's "player".
 
     public static final int BATTLE_PASS_MAX_LEVEL = 50;
     public static final int BATTLE_PASS_POINT_PER_LEVEL = 1000;

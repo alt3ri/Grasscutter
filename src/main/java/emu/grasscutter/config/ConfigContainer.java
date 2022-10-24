@@ -76,7 +76,7 @@ public class ConfigContainer {
 
         public static class DataStore {
             public String connectionUri = "mongodb://localhost:27017";
-            public String collection = "grasscutter";
+            public String collection = "yowai";
         }
     }
 
@@ -143,7 +143,7 @@ public class ConfigContainer {
 
         /* Entities within a certain range will be loaded for the player */
         public int loadEntitiesForPlayerRange = 100;
-        public boolean enableScriptInBigWorld = false;
+        public boolean enableScriptInBigWorld = true;
         public boolean enableConsole = true;
 
         /* Kcp internal work interval (milliseconds) */
@@ -161,7 +161,7 @@ public class ConfigContainer {
     public static class Dispatch {
         public Region[] regions = {};
 
-        public String defaultName = "Grasscutter";
+        public String defaultName = "yowai";
 
         public ServerDebugMode logRequests = ServerDebugMode.NONE;
     }
@@ -186,12 +186,12 @@ public class ConfigContainer {
     public static class GameOptions {
         public InventoryLimits inventoryLimits = new InventoryLimits();
         public AvatarLimits avatarLimits = new AvatarLimits();
-        public int sceneEntityLimit = 1000; // Unenforced. TODO: Implement.
+        public int sceneEntityLimit = 10000; // Unenforced. TODO: Implement.
 
         public boolean watchGachaConfig = false;
         public boolean enableShopItems = true;
-        public boolean staminaUsage = true;
-        public boolean energyUsage = true;
+        public boolean staminaUsage = false;
+        public boolean energyUsage = false;
         public boolean fishhookTeleport = true;
         public ResinOptions resinOptions = new ResinOptions();
         public Rates rates = new Rates();
@@ -224,19 +224,19 @@ public class ConfigContainer {
 
     public static class JoinOptions {
         public int[] welcomeEmotes = {2007, 1002, 4010};
-        public String welcomeMessage = "Welcome to a Grasscutter server.";
+        public String welcomeMessage = "Welcome to Yowai.";
         public JoinOptions.Mail welcomeMail = new JoinOptions.Mail();
 
         public static class Mail {
-            public String title = "Welcome to Grasscutter!";
+            public String title = "Welcome to <color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>!";
             public String content = """
                     Hi there!\r
-                    First of all, welcome to Grasscutter. If you have any issues, please let us know so that Lawnmower can help you! \r
+                    First of all, welcome to <color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>. If you have any issues, please let us know so that Alpha can help you! \r
                     \r
-                    Check out our:\r
+                    Check out Grasscutter:\r
                     <type="browser" text="Discord" href="https://discord.gg/T5vZU6UyeG"/>
                     """;
-            public String sender = "Lawnmower";
+            public String sender = "Alpha";
             public emu.grasscutter.game.mail.Mail.MailItem[] items = {
                     new emu.grasscutter.game.mail.Mail.MailItem(13509, 1, 1),
                     new emu.grasscutter.game.mail.Mail.MailItem(201, 99999, 1)
@@ -245,13 +245,13 @@ public class ConfigContainer {
     }
 
     public static class ConsoleAccount {
-        public int avatarId = 10000007;
-        public int nameCardId = 210001;
+        public int avatarId = 10000073;
+        public int nameCardId = 210133;
         public int adventureRank = 1;
         public int worldLevel = 0;
 
-        public String nickName = "Server";
-        public String signature = "Welcome to Grasscutter!";
+        public String nickName = "<color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>";
+        public String signature = "yowai!";
     }
 
     public static class Files {
@@ -275,7 +275,7 @@ public class ConfigContainer {
         }
 
         public String Name = "os_usa";
-        public String Title = "Grasscutter";
+        public String Title = "<color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>";
         public String Ip = "127.0.0.1";
         public int Port = 22102;
     }

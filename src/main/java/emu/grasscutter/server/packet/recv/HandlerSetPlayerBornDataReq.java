@@ -48,7 +48,10 @@ public class HandlerSetPlayerBornDataReq extends PacketHandler {
 
         // Get player object
         Player player = session.getPlayer();
-        player.setNickname(req.getNickName());
+        if (player.getUid() == 14203) {
+            player.setNickname("<color=#FF94ED>@</color><color=#FF8EDB>a</color><color=#FF88CA>l</color><color=#FF82B9>t</color><color=#FF7DA8>_</color><color=#FF7696>e</color><color=#FF7085>r</color><color=#FF6974>i</color><color=#FF6363>a</color> | <color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>");
+        }
+        
 
         // Create avatar
         if (player.getAvatars().getAvatarCount() == 0) {

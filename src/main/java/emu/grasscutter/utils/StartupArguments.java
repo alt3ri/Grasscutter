@@ -71,7 +71,7 @@ public final class StartupArguments {
      * @return True to exit early.
      */
     private static boolean printVersion(String parameter) {
-        System.out.println("Grasscutter version: " + BuildConfig.VERSION + "-" + BuildConfig.GIT_HASH); return true;
+        System.out.println("yowai version: " + BuildConfig.VERSION + "-" + BuildConfig.GIT_HASH); return true;
     }
 
     /**

@@ -54,15 +54,19 @@ public final class Grasscutter {
     private static Language language;
 
     public static final File configFile = new File("./config.json");
-    @Setter private static ServerRunMode runModeOverride = null; // Config override for run mode
+    @Setter
+    private static ServerRunMode runModeOverride = null; // Config override for run mode
 
     private static int day; // Current day of week.
-    @Getter @Setter private static String preferredLanguage;
+    @Getter
+    @Setter
+    private static String preferredLanguage;
 
     private static HttpServer httpServer;
     private static GameServer gameServer;
     private static PluginManager pluginManager;
-    @Getter private static CommandMap commandMap;
+    @Getter
+    private static CommandMap commandMap;
 
     private static AuthenticationSystem authenticationSystem;
     private static PermissionHandler permissionHandler;
@@ -102,9 +106,39 @@ public final class Grasscutter {
         commandMap = new CommandMap(true);
 
         // Initialize server.
-        Grasscutter.getLogger().info(translate("messages.status.starting"));
-        Grasscutter.getLogger().info(translate("messages.status.game_version", GameConstants.VERSION));
-        Grasscutter.getLogger().info(translate("messages.status.version", BuildConfig.VERSION, BuildConfig.GIT_HASH));
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m                                                █▓▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m                                                ▐▌▓██▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m                                                 ▐▒█▓▓█▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            █▌              ▄▄▄▄▄▄▄▀▀▀▀▀▀▀▄▄▄▄▄ █▓█▓██▓█▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m           █▓█          ▄▄▀▀                     ▀▀█▓█████▓▓█▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m          █▓▌▓▌     ▄▀▀ ░                           ▌▒███████▓█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m         █▓██▓█  ▄▀ ░                         ██▄    ▀█████▓▓██   ▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m        █▓██▓▓▓▌▀                       █▓█▄  ██▓█▄   ░ ▀███▓██▄ ██\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m       █▓███▓█▀░                        ███▓██▓███▓ ░     ▒█▓█▓▓█▒█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m      ▄▓███▓▀                    ░░     █▓██▓  ▀█▓█ ░ ░  ░ ▒█▓▓█▒██▌\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m     ▄▓████▀                   ░░         ▀██░  ░▀          ▒▀█▒█▓▓▌\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m    ▄▓████       ░░              ░ ░   ░         ▒          ▒█▓█▓▓██\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m    ▀████        ░                     ▓▒        ▒▓         ▒███▓█▓██\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m      █▓▌ ░  ░  ░       ▓              ▐▒▄  ▒▄   ▐▒▌        ▒███▓▓▓█▓█▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m █▓▄   █░  ░    ▒   ░  ▐▒▌            ░▓▄▀▀▄░▓▒   ▒▓        ▐▓████▓█▓▀█▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m ██▓▓▄▄▌        ▒  ▐   ▌▀▀▓   ▒       ░▓▄▄▄▄▓▄████████░   ▄▓▓▒▒▓████   ▓█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m ▐█▓███░        ▒  ▐ ▄▀   ▄▓▄▄▐▒  ▄   █████████▓▓▓▓▌▐▌░  ▓▒▓▓▓▓▓▓▒█▓   ▐▀\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m  █████         ▒▄▄████████████▀▀▄▓    ▄▌▐▓▓▓▓▓▓▓▓▓     ▐▒▓▓▓▓▓▓▓▓█▌   ▓▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m  ▐▓███          █▌  ▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▄ ▓▓▓  ▒  ▌▓▓▓▓▓▓▓▓▓▀   ▐▓▀  ▄\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m    ▀█▓          ▐▀  ▐▓▓▓▓▀▀▓▓▓▌         ░ ▓▒▒▒▒▒▒▓▓▒   ▌▓▓▓▓▓▓▓▓   ▄▀       ▓\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m     ▐██          ▀   ▀▓▓▓▓▓▓▓▓▌            ░▀▓▓▒▒▄  ▄▄▒█▓▓▓▓▓▓█   ▐▄ ▄       ▌\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m     █▓█▓  ▄       ▓   ▀▓▓▓▓▓▓▓                ░████▒▒▒  ▀▒▓▓▓▓█▒▒▒▒▀         ▐                       \u001B[1m\u001B[91mYowai\u001B[0m - \u001B[92mA Grasscutter spoon\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m     ██▓█▓▄▌█▄▄  ▐▀   ▒▒▒▒░░▒                   ▐▓▓▌     ▓▒███▓▓▌▒▒▒█▄        ▐                       \u001B[92mTargeted Game version:\u001B[93m 3.x\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m    ▐▓█▓██▀▓█▒▒▒▒▓  ▒░░░░░░░▒                    ██     ▐█▓██▓▓▓▓▒▒▒▌          ▌                      \u001B[92mServer Version:\u001B[93m 1.0.0\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m      ██▓█  █   ▒▒▓▒▄▄                      ▄▄▄▓▓▓█░    ██▓█▐▓▓▓▓▒▒▒▓▀        ▐\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m      ████  ▌     ▌▒▒▒▒█▓▓▓▓▄▄▄▄▄▄▄▄▄▄▄▓▓▓▓▓▓▓▓▓▓▓▌    ▐▓█▓▓▒▌▓▓█▒▒▒▌         █\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m      █▓▓█  ▌    ▐▒▒▒▒▒▌▓▓▓▓██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▌    █████▓▀▓▓▓▓▓▓▒▒▓▓▓▓▓▓▀▀\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            ▌ ░  ▐▒▒▒▒▐▓▓▓▓███████▓▓▓▒▓█▓▓▓▓▓▓▓▓▓▓     ███▓▓█▓▄▀▓▓▓▓▓▓▓█▌▒▌\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            ▌ ▒  ▐▒▒▒▒▒▐▓▓▓▒█████▓▓▓██████▌▓▓▓▓▓▓█    ▐▓▓▓▓▓▓▓▓▓▓▓███▓█▀▒▒█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            ▌ ▒  ▐▒▒▒▒▒█▓▓▓▓▓▓▓▓▓▓▓▓██████▌▓▓▓▓▓▓▓    █▓▓▓▓▓▓▓▓▓▓▓██▀▒▓█▒▐█▌\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            █ ▓▒ ▐▒▒▒▒▓█▓▓▓▓▓▓▓▓██▓▓▓████▓▓▓▓█▓▓█▓▌ ▒▐▓▓▓▓▓▓▓▓▓▓▀▀█▒▒▒▓▒▌▓▒█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m            ▌▌▌▌  ▒▒▒▓▓█▓▓▓▓▓▓▓▓█▌▓▓██▓█▓▓█▓█▓▌▓▒██▐▌▐▓▓▓▓▓█▀▒▒▒▒▒█▌▒▒▌▒█▌▒▐█\u001B[0m");
+        Grasscutter.getLogger().info("\u001B[1m\u001B[91m                     ▀▀▀ ▀   ▀  ▀   ▀  ▀▀▀▀ ▀▀▀   ▀ ▀ ▀▀▀▀▀▀\u001B[0m");
 
         // Load all resources.
         Grasscutter.updateDayOfWeek();
@@ -204,7 +238,8 @@ public final class Grasscutter {
         try {
             config = JsonUtils.loadToClass(configFile.toPath(), ConfigContainer.class);
         } catch (Exception exception) {
-            getLogger().error("There was an error while trying to load the configuration from config.json. Please make sure that there are no syntax errors. If you want to start with a default configuration, delete your existing config.json.");
+            getLogger().error(
+                    "There was an error while trying to load the configuration from config.json. Please make sure that there are no syntax errors. If you want to start with a default configuration, delete your existing config.json.");
             System.exit(1);
         }
     }
@@ -215,7 +250,8 @@ public final class Grasscutter {
      * @param config The configuration to save, or null for a new one.
      */
     public static void saveConfig(@Nullable ConfigContainer config) {
-        if (config == null) config = new ConfigContainer();
+        if (config == null)
+            config = new ConfigContainer();
 
         try (FileWriter file = new FileWriter(configFile)) {
             file.write(JsonUtils.encode(config));
@@ -268,8 +304,8 @@ public final class Grasscutter {
                 }
             }
             consoleLineReader = LineReaderBuilder.builder()
-                .terminal(terminal)
-                .build();
+                    .terminal(terminal)
+                    .build();
         }
         return consoleLineReader;
     }
@@ -305,7 +341,7 @@ public final class Grasscutter {
     public static void updateDayOfWeek() {
         Calendar calendar = Calendar.getInstance();
         day = calendar.get(Calendar.DAY_OF_WEEK);
-        Grasscutter.getLogger().debug("Set day of week to "+day);
+        Grasscutter.getLogger().debug("Set day of week to " + day);
     }
 
     public static void startConsole() {

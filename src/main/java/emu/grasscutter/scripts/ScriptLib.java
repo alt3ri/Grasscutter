@@ -9,6 +9,7 @@ import emu.grasscutter.game.dungeons.challenge.factory.ChallengeFactory;
 import emu.grasscutter.game.props.EntityType;
 import emu.grasscutter.game.quest.enums.QuestState;
 import emu.grasscutter.game.quest.enums.QuestTrigger;
+import emu.grasscutter.scripts.constants.EventType;
 import emu.grasscutter.scripts.data.SceneGroup;
 import emu.grasscutter.scripts.data.SceneRegion;
 import emu.grasscutter.server.packet.send.PacketCanUseSkillNotify;
@@ -554,4 +555,19 @@ public class ScriptLib {
 
         return 0;
     }
+
+	/*public int SetEntityServerGlobalValueByEntityId(int entityId, String name, int eventType){
+		logger.debug("[LUA] Call SetEntityServerGlobalValueByEntityId with {}, {}, {}",
+				entityId, name, eventType);
+		
+		var entityGroupId = getSceneScriptManager().getScene().getEntityById(entityId).getGroupId();
+		var entity = getSceneScriptManager().getScene().getEntityById(entityId);
+		if(entity == null){
+			return 1;
+		}
+		eventType = type;
+		getSceneScriptManager().getScene().getEntities().values().stream().filter(e -> e.getGroupId() == entityGroupId);
+		getSceneScriptManager().getTriggersByEvent(eventType);
+		return 0;
+	}*/
 }

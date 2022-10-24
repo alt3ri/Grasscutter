@@ -42,6 +42,7 @@ public abstract class GameEntity {
     // Abilities
     private Object2FloatMap<String> metaOverrideMap;
     private Int2ObjectMap<String> metaModifiers;
+    private int serverGlobalValue;
 
     public GameEntity(Scene scene) {
         this.scene = scene;
@@ -231,4 +232,5 @@ public abstract class GameEntity {
     }
 
     public abstract SceneEntityInfo toProto();
+
 }

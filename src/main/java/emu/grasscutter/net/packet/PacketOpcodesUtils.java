@@ -17,11 +17,6 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 public class PacketOpcodesUtils {
     private static Int2ObjectMap<String> opcodeMap;
 
-    public static final Set<Integer> BANNED_PACKETS = Set.of(
-        PacketOpcodes.WindSeedClientNotify,
-        PacketOpcodes.PlayerLuaShellNotify
-    );
-
     public static final Set<Integer> LOOP_PACKETS = Set.of(
         PacketOpcodes.PingReq,
         PacketOpcodes.PingRsp,
