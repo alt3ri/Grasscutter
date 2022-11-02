@@ -82,8 +82,7 @@ public class ScriptLib {
 	}
 
 	public int SetGroupGadgetStateByConfigId(int groupId, int configId, int gadgetState) {
-		logger.debug("[LUA] Call SetGroupGadgetStateByConfigId with {},{},{}",
-				groupId,configId,gadgetState);
+		logger.debug("[LUA] Call SetGroupGadgetStateByConfigId with {},{},{}", groupId,configId,gadgetState);
 
 		getSceneScriptManager().getScene().getEntities().values().stream()
 				.filter(e -> e.getGroupId() == groupId)
@@ -556,18 +555,4 @@ public class ScriptLib {
         return 0;
     }
 
-	/*public int SetEntityServerGlobalValueByEntityId(int entityId, String name, int eventType){
-		logger.debug("[LUA] Call SetEntityServerGlobalValueByEntityId with {}, {}, {}",
-				entityId, name, eventType);
-		
-		var entityGroupId = getSceneScriptManager().getScene().getEntityById(entityId).getGroupId();
-		var entity = getSceneScriptManager().getScene().getEntityById(entityId);
-		if(entity == null){
-			return 1;
-		}
-		eventType = type;
-		getSceneScriptManager().getScene().getEntities().values().stream().filter(e -> e.getGroupId() == entityGroupId);
-		getSceneScriptManager().getTriggersByEvent(eventType);
-		return 0;
-	}*/
 }

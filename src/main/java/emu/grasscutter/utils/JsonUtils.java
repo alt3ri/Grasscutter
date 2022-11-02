@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,8 +40,21 @@ public final class JsonUtils {
         return gson.fromJson(jsonElement, classType);
     }
 
+    private static Pattern trailingCommaPattern = Pattern.compile(",\\s*([\\]\\}])", Pattern.MULTILINE);
+
+    private static String stripTrailingCommas(Reader fileReader) throws IOException {
+        char[] arr = new char[8 * 1024];
+        StringBuilder buffer = new StringBuilder();
+        int numCharsRead;
+        while ((numCharsRead = fileReader.read(arr, 0, arr.length)) != -1) {
+            buffer.append(arr, 0, numCharsRead);
+        }
+        fileReader.close();
+        return trailingCommaPattern.matcher(buffer.toString()).replaceAll("$1");
+    }
+
     public static <T> T loadToClass(Reader fileReader, Class<T> classType) throws IOException {
-        return gson.fromJson(fileReader, classType);
+        return gson.fromJson(stripTrailingCommas(fileReader), classType);
     }
 
     @Deprecated(forRemoval = true)
@@ -57,7 +71,7 @@ public final class JsonUtils {
     }
 
     public static <T> List<T> loadToList(Reader fileReader, Class<T> classType) throws IOException {
-        return gson.fromJson(fileReader, TypeToken.getParameterized(List.class, classType).getType());
+        return gson.fromJson(stripTrailingCommas(fileReader), TypeToken.getParameterized(List.class, classType).getType());
     }
 
     @Deprecated(forRemoval = true)
@@ -74,7 +88,7 @@ public final class JsonUtils {
     }
 
     public static <T1,T2> Map<T1,T2> loadToMap(Reader fileReader, Class<T1> keyType, Class<T2> valueType) throws IOException {
-        return gson.fromJson(fileReader, TypeToken.getParameterized(Map.class, keyType, valueType).getType());
+        return gson.fromJson(stripTrailingCommas(fileReader), TypeToken.getParameterized(Map.class, keyType, valueType).getType());
     }
 
     @Deprecated(forRemoval = true)
