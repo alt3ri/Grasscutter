@@ -27,7 +27,7 @@ A Grasscutter spoon trying to make more things work.
 ./gradlew jar
 ```
 
-3. Create a `resources` folder in the directory where grasscutter.jar is located and move your `BinOutput, ExcelBinOutput, Readables, Scripts, Subtitle, TextMap` folders there ([Get it from here](https://github.com/tamilpp25/Grasscutter_Resources))
+3. Create a `resources` folder in the directory where grasscutter.jar is located and move your `BinOutput, ExcelBinOutput, Readables, Scripts, Subtitle, TextMap` folders there ([Get it from here](https://git.crepe.moe/grasscutters/Grasscutter_Resources))
 
 4. Run Yowai by open `run.cmd`. **Make sure mongodb service is running before open this.**
 
