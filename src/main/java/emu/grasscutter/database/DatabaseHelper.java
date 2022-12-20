@@ -1,6 +1,7 @@
 package emu.grasscutter.database;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.mongodb.client.result.DeleteResult;
 
@@ -11,7 +12,7 @@ import emu.grasscutter.GameConstants;
 import emu.grasscutter.Grasscutter;
 import emu.grasscutter.game.Account;
 import emu.grasscutter.game.activity.PlayerActivityData;
-import emu.grasscutter.game.activity.musicgame.MusicGameBeatmap;
+//import emu.grasscutter.game.activity.musicgame.MusicGameBeatmap;
 import emu.grasscutter.game.avatar.Avatar;
 import emu.grasscutter.game.battlepass.BattlePassManager;
 import emu.grasscutter.game.friends.Friendship;
@@ -154,6 +155,11 @@ public final class DatabaseHelper {
         DatabaseManager.getAccountDatastore().find(Account.class).filter(Filters.eq("id", target.getId())).delete();
     }
 
+    public static <T> Stream<T> getByGameClass(Class<T> classType) {
+        return DatabaseManager.getGameDatastore().find(classType).stream();
+    }
+
+    @Deprecated(forRemoval = true)
     public static List<Player> getAllPlayers() {
         return DatabaseManager.getGameDatastore().find(Player.class).stream().toList();
     }
@@ -343,13 +349,13 @@ public final class DatabaseHelper {
     public static void savePlayerActivityData(PlayerActivityData playerActivityData) {
         DatabaseManager.getGameDatastore().save(playerActivityData);
     }
-    public static MusicGameBeatmap getMusicGameBeatmap(long musicShareId) {
-        return DatabaseManager.getGameDatastore().find(MusicGameBeatmap.class)
-            .filter(Filters.eq("musicShareId", musicShareId))
-            .first();
-    }
-
-    public static void saveMusicGameBeatmap(MusicGameBeatmap musicGameBeatmap) {
-        DatabaseManager.getGameDatastore().save(musicGameBeatmap);
-    }
+//    public static MusicGameBeatmap getMusicGameBeatmap(long musicShareId) {
+//        return DatabaseManager.getGameDatastore().find(MusicGameBeatmap.class)
+//            .filter(Filters.eq("musicShareId", musicShareId))
+//            .first();
+//    }
+//
+//    public static void saveMusicGameBeatmap(MusicGameBeatmap musicGameBeatmap) {
+//        DatabaseManager.getGameDatastore().save(musicGameBeatmap);
+//    }
 }

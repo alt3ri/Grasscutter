@@ -9,7 +9,6 @@ import emu.grasscutter.game.dungeons.challenge.factory.ChallengeFactory;
 import emu.grasscutter.game.props.EntityType;
 import emu.grasscutter.game.quest.enums.QuestState;
 import emu.grasscutter.game.quest.enums.QuestTrigger;
-import emu.grasscutter.scripts.constants.EventType;
 import emu.grasscutter.scripts.data.SceneGroup;
 import emu.grasscutter.scripts.data.SceneRegion;
 import emu.grasscutter.server.packet.send.PacketCanUseSkillNotify;
@@ -82,7 +81,8 @@ public class ScriptLib {
 	}
 
 	public int SetGroupGadgetStateByConfigId(int groupId, int configId, int gadgetState) {
-		logger.debug("[LUA] Call SetGroupGadgetStateByConfigId with {},{},{}", groupId,configId,gadgetState);
+		logger.debug("[LUA] Call SetGroupGadgetStateByConfigId with {},{},{}",
+				groupId,configId,gadgetState);
 
 		getSceneScriptManager().getScene().getEntities().values().stream()
 				.filter(e -> e.getGroupId() == groupId)
@@ -554,5 +554,4 @@ public class ScriptLib {
 
         return 0;
     }
-
 }

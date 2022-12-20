@@ -98,13 +98,20 @@ public class GameSession implements GameSessionManager.KcpChannel {
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
         Grasscutter.getLogger().info(sendOrRecv + ": " + PacketOpcodesUtils.getOpcodeName(opcode) + " (" + opcode + ")");
-        System.out.println(Utils.bytesToHex(payload));
+        if (GAME_INFO.isShowPacketPayload)
+            System.out.println(Utils.bytesToHex(payload));
     }
 
     public void send(BasePacket packet) {
         // Test
         if (packet.getOpcode() <= 0) {
             Grasscutter.getLogger().warn("Tried to send packet with missing cmd id!");
+            return;
+        }
+
+        // DO NOT REMOVE (unless we find a way to validate code before sending to client which I don't think we can)
+        // Stop WindSeedClientNotify from being sent for security purposes.
+        if (PacketOpcodesUtils.BANNED_PACKETS.contains(packet.getOpcode())) {
             return;
         }
 
@@ -116,7 +123,7 @@ public class GameSession implements GameSessionManager.KcpChannel {
         // Log
         switch (GAME_INFO.logPackets) {
             case ALL -> {
-                if (!PacketOpcodesUtils.LOOP_PACKETS.contains(packet.getOpcode())) {
+                if (!PacketOpcodesUtils.LOOP_PACKETS.contains(packet.getOpcode()) || GAME_INFO.isShowLoopPackets) {
                     logPacket("SEND", packet.getOpcode(), packet.getData());
                 }
             }
@@ -147,7 +154,6 @@ public class GameSession implements GameSessionManager.KcpChannel {
         this.tunnel = tunnel;
         Grasscutter.getLogger().info(translate("messages.game.connect", this.getAddress().toString()));
     }
-
 
     @Override
     public void handleReceive(byte[] bytes) {
@@ -194,7 +200,7 @@ public class GameSession implements GameSessionManager.KcpChannel {
                 // Log packet
                 switch (GAME_INFO.logPackets) {
                     case ALL -> {
-                        if (!PacketOpcodesUtils.LOOP_PACKETS.contains(opcode)) {
+                        if (!PacketOpcodesUtils.LOOP_PACKETS.contains(opcode) || GAME_INFO.isShowLoopPackets) {
                             logPacket("RECV", opcode, payload);
                         }
                     }

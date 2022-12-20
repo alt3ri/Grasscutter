@@ -1,251 +1,266 @@
 package emu.grasscutter.command.commands;
 
+import emu.grasscutter.server.packet.send.PacketSceneAreaUnlockNotify;
+import emu.grasscutter.server.packet.send.PacketScenePointUnlockNotify;
+import java.util.Collection;
+import emu.grasscutter.data.GameData;
+import emu.grasscutter.net.packet.BasePacket;
+import emu.grasscutter.server.packet.send.PacketOpenStateChangeNotify;
+import java.util.Iterator;
+import emu.grasscutter.game.tower.TowerLevelRecord;
+import emu.grasscutter.game.player.Player;
+import emu.grasscutter.game.props.PlayerProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import emu.grasscutter.command.Command;
 import emu.grasscutter.command.CommandHandler;
-import emu.grasscutter.data.GameData;
-import emu.grasscutter.game.player.Player;
-import emu.grasscutter.game.props.PlayerProperty;
-import emu.grasscutter.game.tower.TowerLevelRecord;
-import emu.grasscutter.server.packet.send.PacketOpenStateChangeNotify;
-import emu.grasscutter.server.packet.send.PacketSceneAreaUnlockNotify;
-import emu.grasscutter.server.packet.send.PacketScenePointUnlockNotify;
 
-@Command(label = "setProp", aliases = {"prop"}, usage = {"<prop> <value>"}, permission = "player.setprop", permissionTargeted = "player.setprop.others")
-public final class SetPropCommand implements CommandHandler {
-    static enum PseudoProp {
-        NONE,
-        WORLD_LEVEL,
-        TOWER_LEVEL,
-        BP_LEVEL,
-        GOD_MODE,
-        UNLIMITED_STAMINA,
-        UNLIMITED_ENERGY,
-        SET_OPENSTATE,
-        UNSET_OPENSTATE,
-        UNLOCK_MAP
-    }
-
-    static class Prop {
-        String name;
-        PlayerProperty prop;
-        PseudoProp pseudoProp;
-
-        public Prop(PlayerProperty prop) {
-            this(prop.toString(), prop, PseudoProp.NONE);
-        }
-
-        public Prop(String name) {
-            this(name, PlayerProperty.PROP_NONE, PseudoProp.NONE);
-        }
-
-        public Prop(String name, PseudoProp pseudoProp) {
-            this(name, PlayerProperty.PROP_NONE, pseudoProp);
-        }
-
-        public Prop(String name, PlayerProperty prop) {
-            this(name, prop, PseudoProp.NONE);
-        }
-
-        public Prop(String name, PlayerProperty prop, PseudoProp pseudoProp) {
-            this.name = name;
-            this.prop = prop;
-            this.pseudoProp = pseudoProp;
-        }
-    }
-
-    Map<String, Prop> props;
-
+@Command(label = "setProp", aliases = { "prop" }, usage = { "<prop> <value>" }, permission = "player.setprop", permissionTargeted = "player.setprop.others")
+public final class SetPropCommand implements CommandHandler
+{
+    Map<String, SetPropCommand.Prop> props;
+    private static final List<Integer> sceneAreas;
+    
     public SetPropCommand() {
-        this.props = new HashMap<>();
-        // Full PlayerProperty enum that won't be advertised but can be used by devs
-        for (PlayerProperty prop : PlayerProperty.values()) {
-            String name = prop.toString().substring(5);  // PROP_EXP -> EXP
-            String key = name.toLowerCase();  // EXP -> exp
-            this.props.put(key, new Prop(name, prop));
+        this.props = new HashMap<String, SetPropCommand.Prop>();
+        for (final PlayerProperty prop : PlayerProperty.values()) {
+            final String name = prop.toString().substring(5);
+            final String key = name.toLowerCase();
+            this.props.put(key, new SetPropCommand.Prop(name, prop));
         }
-        // Add special props
-        Prop worldlevel = new Prop("World Level", PlayerProperty.PROP_PLAYER_WORLD_LEVEL, PseudoProp.WORLD_LEVEL);
+        final SetPropCommand.Prop worldlevel = new SetPropCommand.Prop("World Level", PlayerProperty.PROP_PLAYER_WORLD_LEVEL, SetPropCommand.PseudoProp.WORLD_LEVEL);
         this.props.put("worldlevel", worldlevel);
         this.props.put("wl", worldlevel);
-
-        Prop abyss = new Prop("Tower Level", PseudoProp.TOWER_LEVEL);
+        final SetPropCommand.Prop abyss = new SetPropCommand.Prop("Tower Level", SetPropCommand.PseudoProp.TOWER_LEVEL);
         this.props.put("abyss", abyss);
         this.props.put("abyssfloor", abyss);
         this.props.put("ut", abyss);
         this.props.put("tower", abyss);
         this.props.put("towerlevel", abyss);
         this.props.put("unlocktower", abyss);
-
-        Prop bplevel = new Prop("BP Level", PseudoProp.BP_LEVEL);
+        final SetPropCommand.Prop bplevel = new SetPropCommand.Prop("BP Level", SetPropCommand.PseudoProp.BP_LEVEL);
         this.props.put("bplevel", bplevel);
         this.props.put("bp", bplevel);
         this.props.put("battlepass", bplevel);
-
-        Prop godmode = new Prop("GodMode", PseudoProp.GOD_MODE);
+        final SetPropCommand.Prop godmode = new SetPropCommand.Prop("GodMode", SetPropCommand.PseudoProp.GOD_MODE);
         this.props.put("godmode", godmode);
         this.props.put("god", godmode);
-
-        Prop nostamina = new Prop("UnlimitedStamina", PseudoProp.UNLIMITED_STAMINA);
+        final SetPropCommand.Prop nostamina = new SetPropCommand.Prop("UnlimitedStamina", SetPropCommand.PseudoProp.UNLIMITED_STAMINA);
         this.props.put("unlimitedstamina", nostamina);
         this.props.put("us", nostamina);
         this.props.put("nostamina", nostamina);
         this.props.put("nostam", nostamina);
         this.props.put("ns", nostamina);
-
-        Prop unlimitedenergy = new Prop("UnlimitedEnergy", PseudoProp.UNLIMITED_ENERGY);
+        final SetPropCommand.Prop unlimitedenergy = new SetPropCommand.Prop("UnlimitedEnergy", SetPropCommand.PseudoProp.UNLIMITED_ENERGY);
         this.props.put("unlimitedenergy", unlimitedenergy);
         this.props.put("ue", unlimitedenergy);
-
-        Prop setopenstate = new Prop("SetOpenstate", PseudoProp.SET_OPENSTATE);
+        final SetPropCommand.Prop setopenstate = new SetPropCommand.Prop("SetOpenstate", SetPropCommand.PseudoProp.SET_OPENSTATE);
         this.props.put("setopenstate", setopenstate);
         this.props.put("so", setopenstate);
-
-        Prop unsetopenstate = new Prop("UnsetOpenstate", PseudoProp.UNSET_OPENSTATE);
+        final SetPropCommand.Prop unsetopenstate = new SetPropCommand.Prop("UnsetOpenstate", SetPropCommand.PseudoProp.UNSET_OPENSTATE);
         this.props.put("unsetopenstate", unsetopenstate);
         this.props.put("uo", unsetopenstate);
-
-        Prop unlockmap = new Prop("UnlockMap", PseudoProp.UNLOCK_MAP);
+        final SetPropCommand.Prop unlockmap = new SetPropCommand.Prop("UnlockMap", SetPropCommand.PseudoProp.UNLOCK_MAP);
         this.props.put("unlockmap", unlockmap);
         this.props.put("um", unlockmap);
     }
-
-    @Override
-    public void execute(Player sender, Player targetPlayer, List<String> args) {
+    
+    public void execute(final Player sender, final Player targetPlayer, final List<String> args) {
         if (args.size() != 2) {
-            sendUsageMessage(sender);
+            this.sendUsageMessage(sender, new String[0]);
             return;
         }
-        String propStr = args.get(0).toLowerCase();
-        String valueStr = args.get(1).toLowerCase();
+        final String propStr = args.get(0).toLowerCase();
+        final String valueStr = args.get(1).toLowerCase();
+        if (!this.props.containsKey(propStr)) {
+            this.sendUsageMessage(sender, new String[0]);
+            return;
+        }
         int value;
-
-        if (!props.containsKey(propStr)) {
-            sendUsageMessage(sender);
-            return;
-        }
         try {
-            value = switch (valueStr.toLowerCase()) {
-                case "on", "true" -> 1;
-                case "off", "false" -> 0;
-                case "toggle" -> -1;
-                default -> Integer.parseInt(valueStr);
-            };
-        } catch (NumberFormatException ignored) {
-            CommandHandler.sendTranslatedMessage(sender, "commands.execution.argument_error");
+            final String lowerCase = valueStr.toLowerCase();
+            int int1 = 0;
+            switch (lowerCase) {
+                case "on":
+                case "true": {
+                    int1 = 1;
+                    break;
+                }
+                case "off":
+                case "false": {
+                    int1 = 0;
+                    break;
+                }
+                case "toggle": {
+                    int1 = -1;
+                    break;
+                }
+                default: {
+                    int1 = Integer.parseInt(valueStr);
+                    break;
+                }
+            }
+            value = int1;
+        }
+        catch (NumberFormatException ignored) {
+            CommandHandler.sendTranslatedMessage(sender, "commands.execution.argument_error", new Object[0]);
             return;
         }
-
         boolean success = false;
-        Prop prop = props.get(propStr);
-
-        success = switch (prop.pseudoProp) {
-            case WORLD_LEVEL -> targetPlayer.setWorldLevel(value);
-            case BP_LEVEL -> targetPlayer.getBattlePassManager().setLevel(value);
-            case TOWER_LEVEL -> this.setTowerLevel(sender, targetPlayer, value);
-            case GOD_MODE, UNLIMITED_STAMINA, UNLIMITED_ENERGY -> this.setBool(sender, targetPlayer, prop.pseudoProp, value);
-            case SET_OPENSTATE -> this.setOpenState(targetPlayer, value, 1);
-            case UNSET_OPENSTATE -> this.setOpenState(targetPlayer, value, 0);
-            case UNLOCK_MAP -> unlockMap(targetPlayer);
-            default -> targetPlayer.setProperty(prop.prop, value);
-        };
-
+        final SetPropCommand.Prop prop = this.props.get(propStr);
+        boolean b = false;
+        switch (SetPropCommand.SetPropCommand$2.$SwitchMap$emu$grasscutter$command$commands$SetPropCommand$PseudoProp[prop.pseudoProp.ordinal()]) {
+            case 1: {
+                b = targetPlayer.setWorldLevel(value);
+                break;
+            }
+            case 2: {
+                b = targetPlayer.getBattlePassManager().setLevel(value);
+                break;
+            }
+            case 3: {
+                b = this.setTowerLevel(sender, targetPlayer, value);
+                break;
+            }
+            case 4:
+            case 5:
+            case 6: {
+                b = this.setBool(sender, targetPlayer, prop.pseudoProp, value);
+                break;
+            }
+            case 7: {
+                b = this.setOpenState(targetPlayer, value, 1);
+                break;
+            }
+            case 8: {
+                b = this.setOpenState(targetPlayer, value, 0);
+                break;
+            }
+            case 9: {
+                b = this.unlockMap(targetPlayer);
+                break;
+            }
+            default: {
+                b = targetPlayer.setProperty(prop.prop, value);
+                break;
+            }
+        }
+        success = b;
         if (success) {
             if (targetPlayer == sender) {
-                CommandHandler.sendTranslatedMessage(sender, "commands.generic.set_to", prop.name, valueStr);
-            } else {
-                String uidStr = targetPlayer.getAccount().getId();
-                CommandHandler.sendTranslatedMessage(sender, "commands.generic.set_for_to", prop.name, uidStr, valueStr);
+                CommandHandler.sendTranslatedMessage(sender, "commands.generic.set_to", new Object[] { prop.name, valueStr });
             }
-        } else {
-            if (prop.prop != PlayerProperty.PROP_NONE) {  // PseudoProps need to do their own error messages
-                int min = targetPlayer.getPropertyMin(prop.prop);
-                int max = targetPlayer.getPropertyMax(prop.prop);
-                CommandHandler.sendTranslatedMessage(sender, "commands.generic.invalid.value_between", prop.name, min, max);
+            else {
+                final String uidStr = targetPlayer.getAccount().getId();
+                CommandHandler.sendTranslatedMessage(sender, "commands.generic.set_for_to", new Object[] { prop.name, uidStr, valueStr });
             }
+        }
+        else if (prop.prop != PlayerProperty.PROP_NONE) {
+            final int min = targetPlayer.getPropertyMin(prop.prop);
+            final int max = targetPlayer.getPropertyMax(prop.prop);
+            CommandHandler.sendTranslatedMessage(sender, "commands.generic.invalid.value_between", new Object[] { prop.name, min, max });
         }
     }
-
-    private boolean setTowerLevel(Player sender, Player targetPlayer, int topFloor) {
-        List<Integer> floorIds = targetPlayer.getServer().getTowerSystem().getAllFloors();
+    
+    private boolean setTowerLevel(final Player sender, final Player targetPlayer, final int topFloor) {
+        final List<Integer> floorIds = (List<Integer>)targetPlayer.getServer().getTowerSystem().getAllFloors();
         if (topFloor < 0 || topFloor > floorIds.size()) {
-            CommandHandler.sendTranslatedMessage(sender, "commands.generic.invalid.value_between", "Tower Level", 0, floorIds.size());
+            CommandHandler.sendTranslatedMessage(sender, "commands.generic.invalid.value_between", new Object[] { "Tower Level", 0, floorIds.size() });
             return false;
         }
-
-        Map<Integer, TowerLevelRecord> recordMap = targetPlayer.getTowerManager().getRecordMap();
-        // Add records for each unlocked floor
-        for (int floor : floorIds.subList(0, topFloor)) {
+        final Map<Integer, TowerLevelRecord> recordMap = (Map<Integer, TowerLevelRecord>)targetPlayer.getTowerManager().getRecordMap();
+        for (final int floor : floorIds.subList(0, topFloor)) {
             if (!recordMap.containsKey(floor)) {
                 recordMap.put(floor, new TowerLevelRecord(floor));
             }
         }
-        // Remove records for each floor past our target
-        for (int floor : floorIds.subList(topFloor, floorIds.size())) {
+        for (final int floor : floorIds.subList(topFloor, floorIds.size())) {
             if (recordMap.containsKey(floor)) {
                 recordMap.remove(floor);
             }
         }
-        // Six stars required on Floor 8 to unlock Floor 9+
         if (topFloor > 8) {
-            recordMap.get(floorIds.get(7)).setLevelStars(0, 6);  // levelIds seem to start at 1 for Floor 1 Chamber 1, so this doesn't get shown at all
+            recordMap.get(floorIds.get(7)).setLevelStars(0, 6);
         }
         return true;
     }
-
-    private boolean setBool(Player sender, Player targetPlayer, PseudoProp pseudoProp, int value) {
-        boolean enabled = switch (pseudoProp) {
-            case GOD_MODE -> targetPlayer.inGodmode();
-            case UNLIMITED_STAMINA -> targetPlayer.getUnlimitedStamina();
-            case UNLIMITED_ENERGY -> !targetPlayer.getEnergyManager().getEnergyUsage();
-            default -> false;
-        };
-        enabled = switch (value) {
-            case -1 -> !enabled;
-            case 0 -> false;
-            default -> true;
-        };
-
-        switch (pseudoProp) {
-            case GOD_MODE:
+    
+    private boolean setBool(final Player sender, final Player targetPlayer, final SetPropCommand.PseudoProp pseudoProp, final int value) {
+        boolean b = false;
+        switch (SetPropCommand.SetPropCommand$2.$SwitchMap$emu$grasscutter$command$commands$SetPropCommand$PseudoProp[pseudoProp.ordinal()]) {
+            case 4: {
+                b = targetPlayer.inGodmode();
+                break;
+            }
+            case 5: {
+                b = targetPlayer.getUnlimitedStamina();
+                break;
+            }
+            case 6: {
+                b = !targetPlayer.getEnergyManager().getEnergyUsage();
+                break;
+            }
+            default: {
+                b = false;
+                break;
+            }
+        }
+        boolean enabled = b;
+        boolean b2 = false;
+        switch (value) {
+            case -1: {
+                b2 = !enabled;
+                break;
+            }
+            case 0: {
+                b2 = false;
+                break;
+            }
+            default: {
+                b2 = true;
+                break;
+            }
+        }
+        enabled = b2;
+        switch (SetPropCommand.SetPropCommand$2.$SwitchMap$emu$grasscutter$command$commands$SetPropCommand$PseudoProp[pseudoProp.ordinal()]) {
+            case 4: {
                 targetPlayer.setGodmode(enabled);
                 break;
-            case UNLIMITED_STAMINA:
+            }
+            case 5: {
                 targetPlayer.setUnlimitedStamina(enabled);
                 break;
-            case UNLIMITED_ENERGY:
+            }
+            case 6: {
                 targetPlayer.getEnergyManager().setEnergyUsage(!enabled);
                 break;
-            default:
+            }
+            default: {
                 return false;
+            }
         }
         return true;
     }
-
-    private boolean setOpenState(Player targetPlayer, int state, int value) {
-        targetPlayer.sendPacket(new PacketOpenStateChangeNotify(state, value));
+    
+    private boolean setOpenState(final Player targetPlayer, final int state, final int value) {
+        targetPlayer.sendPacket((BasePacket)new PacketOpenStateChangeNotify(state, value));
         return true;
     }
-
-    // List of map areas. Unfortunately, there is no readily available source for them in excels or bins.
-    final static private List<Integer> sceneAreas = List.of(1,2,3,4,5,6,7,8,9,10,11,12,13,14,17,18,19,20,21,22,23,24,25,26,27,28,29,100,101,102,103,200,210,300,400,401,402,403);
-    private boolean unlockMap(Player targetPlayer) {
-        // Unlock.
+    
+    private boolean unlockMap(final Player targetPlayer) {
         GameData.getScenePointsPerScene().forEach((sceneId, scenePoints) -> {
-            // Unlock trans points.
-            targetPlayer.getUnlockedScenePoints(sceneId).addAll(scenePoints);
-
-            // Unlock map areas.
-            targetPlayer.getUnlockedSceneAreas(sceneId).addAll(sceneAreas);
+            targetPlayer.getUnlockedScenePoints((int)sceneId).addAll(scenePoints);
+            targetPlayer.getUnlockedSceneAreas((int)sceneId).addAll(SetPropCommand.sceneAreas);
+            return;
         });
-
-        // Send notify.
-        int playerScene = targetPlayer.getSceneId();
-        targetPlayer.sendPacket(new PacketScenePointUnlockNotify(playerScene, targetPlayer.getUnlockedScenePoints(playerScene)));
-        targetPlayer.sendPacket(new PacketSceneAreaUnlockNotify(playerScene, targetPlayer.getUnlockedSceneAreas(playerScene)));
+        final int playerScene = targetPlayer.getSceneId();
+        targetPlayer.sendPacket((BasePacket)new PacketScenePointUnlockNotify(playerScene, (Iterable)targetPlayer.getUnlockedScenePoints(playerScene)));
+        targetPlayer.sendPacket((BasePacket)new PacketSceneAreaUnlockNotify(playerScene, (Iterable)targetPlayer.getUnlockedSceneAreas(playerScene)));
         return true;
+    }
+    
+    static {
+        sceneAreas = new SetPropCommand.SetPropCommand$1().getSceneArea();
     }
 }

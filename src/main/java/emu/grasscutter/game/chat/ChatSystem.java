@@ -197,7 +197,7 @@ public class ChatSystem implements ChatSystemHandler {
         }
 
         if (joinOptions.welcomeMessage != null && joinOptions.welcomeMessage.length() > 0) {
-            this.sendPrivateMessageFromServer(player.getUid(), "Welcome back to <color=#FF0000>Y</color><color=#FF4812>o</color><color=#FF9124>w</color><color=#FFBB34>a</color><color=#FFE645>i</color>,<color=color=#00FFFF> " + player.getNickname() + "</color>");
+            this.sendPrivateMessageFromServer(player.getUid(), joinOptions.welcomeMessage);
         }
     }
 }

@@ -33,7 +33,7 @@ public abstract class GameEntity {
     @Getter @Setter private int configId;
     @Getter @Setter private int groupId;
 
-    private MotionState moveState;
+    @Getter @Setter private MotionState motionState;
     @Getter @Setter private int lastMoveSceneTimeMs;
     @Getter @Setter private int lastMoveReliableSeq;
 
@@ -42,11 +42,10 @@ public abstract class GameEntity {
     // Abilities
     private Object2FloatMap<String> metaOverrideMap;
     private Int2ObjectMap<String> metaModifiers;
-    private int serverGlobalValue;
 
     public GameEntity(Scene scene) {
         this.scene = scene;
-        this.moveState = MotionState.MOTION_STATE_NONE;
+        this.motionState = MotionState.MOTION_STATE_NONE;
     }
 
     public int getEntityType() {
@@ -84,14 +83,6 @@ public abstract class GameEntity {
     public abstract Position getPosition();
 
     public abstract Position getRotation();
-
-    public MotionState getMotionState() {
-        return moveState;
-    }
-
-    public void setMotionState(MotionState moveState) {
-        this.moveState = moveState;
-    }
 
     public void setFightProperty(FightProperty prop, float value) {
         this.getFightProperties().put(prop.getId(), value);
@@ -232,5 +223,4 @@ public abstract class GameEntity {
     }
 
     public abstract SceneEntityInfo toProto();
-
 }

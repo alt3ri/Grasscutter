@@ -79,12 +79,12 @@ if not exist "%JAVA_PATH%bin\java.exe" (
 	call :LOG [ERROR] Java not found.
 	goto :EXIT
 )
-if not exist "%SERVER_PATH%yowai-1.4.2-dev.jar" (
+if not exist "%SERVER_PATH%yowai-1.4.4-dev.jar" (
 	call :LOG [ERROR] Server jar not found.
 	goto :EXIT
 )
 call :LOG [INFO] Starting server...
-"%JAVA_PATH%bin\java.exe" -jar -Dfile.encoding=UTF-8 "%SERVER_PATH%yowai-1.4.2-dev.jar"
+"%JAVA_PATH%bin\java.exe" -jar -Dfile.encoding=UTF-8 "%SERVER_PATH%yowai-1.4.4-dev.jar"
 call :LOG [INFO] Server stopped
 
 :EXIT
