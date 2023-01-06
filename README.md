@@ -15,7 +15,7 @@ A Grasscutter spoon trying to make more things work.
 * mostly working except scripts related
 
 ## Requirement
-- [JDK 17.0.4.1] (https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+- ([JDK 17.0.4.1](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html))
 - mitmproxy
 - Game resources
 
