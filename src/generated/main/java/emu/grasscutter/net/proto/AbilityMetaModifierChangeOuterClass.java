@@ -64,10 +64,10 @@ public final class AbilityMetaModifierChangeOuterClass {
         int index);
 
     /**
-     * <code>bool Unk3300_NOPKODKOHJK = 12;</code>
-     * @return The unk3300NOPKODKOHJK.
+     * <code>bool is_mute_remote = 12;</code>
+     * @return The isMuteRemote.
      */
-    boolean getUnk3300NOPKODKOHJK();
+    boolean getIsMuteRemote();
 
     /**
      * <code>int32 modifier_local_id = 2;</code>
@@ -76,10 +76,10 @@ public final class AbilityMetaModifierChangeOuterClass {
     int getModifierLocalId();
 
     /**
-     * <code>bool Unk3300_PBNENPBMNCI = 8;</code>
-     * @return The unk3300PBNENPBMNCI.
+     * <code>bool is_durability_zero = 8;</code>
+     * @return The isDurabilityZero.
      */
-    boolean getUnk3300PBNENPBMNCI();
+    boolean getIsDurabilityZero();
 
     /**
      * <code>.AbilityString parent_ability_name = 13;</code>
@@ -218,7 +218,7 @@ public final class AbilityMetaModifierChangeOuterClass {
             }
             case 64: {
 
-              unk3300PBNENPBMNCI_ = input.readBool();
+              isDurabilityZero_ = input.readBool();
               break;
             }
             case 72: {
@@ -228,7 +228,7 @@ public final class AbilityMetaModifierChangeOuterClass {
             }
             case 96: {
 
-              unk3300NOPKODKOHJK_ = input.readBool();
+              isMuteRemote_ = input.readBool();
               break;
             }
             case 106: {
@@ -378,15 +378,15 @@ public final class AbilityMetaModifierChangeOuterClass {
       return properties_.get(index);
     }
 
-    public static final int UNK3300_NOPKODKOHJK_FIELD_NUMBER = 12;
-    private boolean unk3300NOPKODKOHJK_;
+    public static final int IS_MUTE_REMOTE_FIELD_NUMBER = 12;
+    private boolean isMuteRemote_;
     /**
-     * <code>bool Unk3300_NOPKODKOHJK = 12;</code>
-     * @return The unk3300NOPKODKOHJK.
+     * <code>bool is_mute_remote = 12;</code>
+     * @return The isMuteRemote.
      */
     @java.lang.Override
-    public boolean getUnk3300NOPKODKOHJK() {
-      return unk3300NOPKODKOHJK_;
+    public boolean getIsMuteRemote() {
+      return isMuteRemote_;
     }
 
     public static final int MODIFIER_LOCAL_ID_FIELD_NUMBER = 2;
@@ -400,15 +400,15 @@ public final class AbilityMetaModifierChangeOuterClass {
       return modifierLocalId_;
     }
 
-    public static final int UNK3300_PBNENPBMNCI_FIELD_NUMBER = 8;
-    private boolean unk3300PBNENPBMNCI_;
+    public static final int IS_DURABILITY_ZERO_FIELD_NUMBER = 8;
+    private boolean isDurabilityZero_;
     /**
-     * <code>bool Unk3300_PBNENPBMNCI = 8;</code>
-     * @return The unk3300PBNENPBMNCI.
+     * <code>bool is_durability_zero = 8;</code>
+     * @return The isDurabilityZero.
      */
     @java.lang.Override
-    public boolean getUnk3300PBNENPBMNCI() {
-      return unk3300PBNENPBMNCI_;
+    public boolean getIsDurabilityZero() {
+      return isDurabilityZero_;
     }
 
     public static final int PARENT_ABILITY_NAME_FIELD_NUMBER = 13;
@@ -533,14 +533,14 @@ public final class AbilityMetaModifierChangeOuterClass {
       if (applyEntityId_ != 0) {
         output.writeUInt32(7, applyEntityId_);
       }
-      if (unk3300PBNENPBMNCI_ != false) {
-        output.writeBool(8, unk3300PBNENPBMNCI_);
+      if (isDurabilityZero_ != false) {
+        output.writeBool(8, isDurabilityZero_);
       }
       if (serverBuffUid_ != 0) {
         output.writeUInt32(9, serverBuffUid_);
       }
-      if (unk3300NOPKODKOHJK_ != false) {
-        output.writeBool(12, unk3300NOPKODKOHJK_);
+      if (isMuteRemote_ != false) {
+        output.writeBool(12, isMuteRemote_);
       }
       if (parentAbilityName_ != null) {
         output.writeMessage(13, getParentAbilityName());
@@ -580,17 +580,17 @@ public final class AbilityMetaModifierChangeOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(7, applyEntityId_);
       }
-      if (unk3300PBNENPBMNCI_ != false) {
+      if (isDurabilityZero_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(8, unk3300PBNENPBMNCI_);
+          .computeBoolSize(8, isDurabilityZero_);
       }
       if (serverBuffUid_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(9, serverBuffUid_);
       }
-      if (unk3300NOPKODKOHJK_ != false) {
+      if (isMuteRemote_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(12, unk3300NOPKODKOHJK_);
+          .computeBoolSize(12, isMuteRemote_);
       }
       if (parentAbilityName_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -628,12 +628,12 @@ public final class AbilityMetaModifierChangeOuterClass {
           != other.getIsAttachedParentAbility()) return false;
       if (!getPropertiesList()
           .equals(other.getPropertiesList())) return false;
-      if (getUnk3300NOPKODKOHJK()
-          != other.getUnk3300NOPKODKOHJK()) return false;
+      if (getIsMuteRemote()
+          != other.getIsMuteRemote()) return false;
       if (getModifierLocalId()
           != other.getModifierLocalId()) return false;
-      if (getUnk3300PBNENPBMNCI()
-          != other.getUnk3300PBNENPBMNCI()) return false;
+      if (getIsDurabilityZero()
+          != other.getIsDurabilityZero()) return false;
       if (hasParentAbilityName() != other.hasParentAbilityName()) return false;
       if (hasParentAbilityName()) {
         if (!getParentAbilityName()
@@ -671,14 +671,14 @@ public final class AbilityMetaModifierChangeOuterClass {
         hash = (37 * hash) + PROPERTIES_FIELD_NUMBER;
         hash = (53 * hash) + getPropertiesList().hashCode();
       }
-      hash = (37 * hash) + UNK3300_NOPKODKOHJK_FIELD_NUMBER;
+      hash = (37 * hash) + IS_MUTE_REMOTE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getUnk3300NOPKODKOHJK());
+          getIsMuteRemote());
       hash = (37 * hash) + MODIFIER_LOCAL_ID_FIELD_NUMBER;
       hash = (53 * hash) + getModifierLocalId();
-      hash = (37 * hash) + UNK3300_PBNENPBMNCI_FIELD_NUMBER;
+      hash = (37 * hash) + IS_DURABILITY_ZERO_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getUnk3300PBNENPBMNCI());
+          getIsDurabilityZero());
       if (hasParentAbilityName()) {
         hash = (37 * hash) + PARENT_ABILITY_NAME_FIELD_NUMBER;
         hash = (53 * hash) + getParentAbilityName().hashCode();
@@ -841,11 +841,11 @@ public final class AbilityMetaModifierChangeOuterClass {
         } else {
           propertiesBuilder_.clear();
         }
-        unk3300NOPKODKOHJK_ = false;
+        isMuteRemote_ = false;
 
         modifierLocalId_ = 0;
 
-        unk3300PBNENPBMNCI_ = false;
+        isDurabilityZero_ = false;
 
         if (parentAbilityNameBuilder_ == null) {
           parentAbilityName_ = null;
@@ -907,9 +907,9 @@ public final class AbilityMetaModifierChangeOuterClass {
         } else {
           result.properties_ = propertiesBuilder_.build();
         }
-        result.unk3300NOPKODKOHJK_ = unk3300NOPKODKOHJK_;
+        result.isMuteRemote_ = isMuteRemote_;
         result.modifierLocalId_ = modifierLocalId_;
-        result.unk3300PBNENPBMNCI_ = unk3300PBNENPBMNCI_;
+        result.isDurabilityZero_ = isDurabilityZero_;
         if (parentAbilityNameBuilder_ == null) {
           result.parentAbilityName_ = parentAbilityName_;
         } else {
@@ -1003,14 +1003,14 @@ public final class AbilityMetaModifierChangeOuterClass {
             }
           }
         }
-        if (other.getUnk3300NOPKODKOHJK() != false) {
-          setUnk3300NOPKODKOHJK(other.getUnk3300NOPKODKOHJK());
+        if (other.getIsMuteRemote() != false) {
+          setIsMuteRemote(other.getIsMuteRemote());
         }
         if (other.getModifierLocalId() != 0) {
           setModifierLocalId(other.getModifierLocalId());
         }
-        if (other.getUnk3300PBNENPBMNCI() != false) {
-          setUnk3300PBNENPBMNCI(other.getUnk3300PBNENPBMNCI());
+        if (other.getIsDurabilityZero() != false) {
+          setIsDurabilityZero(other.getIsDurabilityZero());
         }
         if (other.hasParentAbilityName()) {
           mergeParentAbilityName(other.getParentAbilityName());
@@ -1447,33 +1447,33 @@ public final class AbilityMetaModifierChangeOuterClass {
         return propertiesBuilder_;
       }
 
-      private boolean unk3300NOPKODKOHJK_ ;
+      private boolean isMuteRemote_ ;
       /**
-       * <code>bool Unk3300_NOPKODKOHJK = 12;</code>
-       * @return The unk3300NOPKODKOHJK.
+       * <code>bool is_mute_remote = 12;</code>
+       * @return The isMuteRemote.
        */
       @java.lang.Override
-      public boolean getUnk3300NOPKODKOHJK() {
-        return unk3300NOPKODKOHJK_;
+      public boolean getIsMuteRemote() {
+        return isMuteRemote_;
       }
       /**
-       * <code>bool Unk3300_NOPKODKOHJK = 12;</code>
-       * @param value The unk3300NOPKODKOHJK to set.
+       * <code>bool is_mute_remote = 12;</code>
+       * @param value The isMuteRemote to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300NOPKODKOHJK(boolean value) {
+      public Builder setIsMuteRemote(boolean value) {
         
-        unk3300NOPKODKOHJK_ = value;
+        isMuteRemote_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool Unk3300_NOPKODKOHJK = 12;</code>
+       * <code>bool is_mute_remote = 12;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300NOPKODKOHJK() {
+      public Builder clearIsMuteRemote() {
         
-        unk3300NOPKODKOHJK_ = false;
+        isMuteRemote_ = false;
         onChanged();
         return this;
       }
@@ -1509,33 +1509,33 @@ public final class AbilityMetaModifierChangeOuterClass {
         return this;
       }
 
-      private boolean unk3300PBNENPBMNCI_ ;
+      private boolean isDurabilityZero_ ;
       /**
-       * <code>bool Unk3300_PBNENPBMNCI = 8;</code>
-       * @return The unk3300PBNENPBMNCI.
+       * <code>bool is_durability_zero = 8;</code>
+       * @return The isDurabilityZero.
        */
       @java.lang.Override
-      public boolean getUnk3300PBNENPBMNCI() {
-        return unk3300PBNENPBMNCI_;
+      public boolean getIsDurabilityZero() {
+        return isDurabilityZero_;
       }
       /**
-       * <code>bool Unk3300_PBNENPBMNCI = 8;</code>
-       * @param value The unk3300PBNENPBMNCI to set.
+       * <code>bool is_durability_zero = 8;</code>
+       * @param value The isDurabilityZero to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300PBNENPBMNCI(boolean value) {
+      public Builder setIsDurabilityZero(boolean value) {
         
-        unk3300PBNENPBMNCI_ = value;
+        isDurabilityZero_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool Unk3300_PBNENPBMNCI = 8;</code>
+       * <code>bool is_durability_zero = 8;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300PBNENPBMNCI() {
+      public Builder clearIsDurabilityZero() {
         
-        unk3300PBNENPBMNCI_ = false;
+        isDurabilityZero_ = false;
         onChanged();
         return this;
       }
@@ -1963,18 +1963,18 @@ public final class AbilityMetaModifierChangeOuterClass {
       "\n\037AbilityMetaModifierChange.proto\032\035Abili" +
       "tyAttachedModifier.proto\032\023AbilityString." +
       "proto\032\024ModifierAction.proto\032\026ModifierPro" +
-      "perty.proto\"\253\003\n\031AbilityMetaModifierChang" +
+      "perty.proto\"\245\003\n\031AbilityMetaModifierChang" +
       "e\022=\n\033attached_instanced_modifier\030\003 \001(\0132\030" +
       ".AbilityAttachedModifier\022\"\n\032is_attached_" +
       "parent_ability\030\005 \001(\010\022%\n\nproperties\030\016 \003(\013" +
-      "2\021.ModifierProperty\022\033\n\023Unk3300_NOPKODKOH" +
-      "JK\030\014 \001(\010\022\031\n\021modifier_local_id\030\002 \001(\005\022\033\n\023U" +
-      "nk3300_PBNENPBMNCI\030\010 \001(\010\022+\n\023parent_abili" +
-      "ty_name\030\r \001(\0132\016.AbilityString\022\027\n\017server_" +
-      "buff_uid\030\t \001(\r\022\027\n\017apply_entity_id\030\007 \001(\r\022" +
-      "/\n\027parent_ability_override\030\017 \001(\0132\016.Abili" +
-      "tyString\022\037\n\006action\030\004 \001(\0162\017.ModifierActio" +
-      "nB\033\n\031emu.grasscutter.net.protob\006proto3"
+      "2\021.ModifierProperty\022\026\n\016is_mute_remote\030\014 " +
+      "\001(\010\022\031\n\021modifier_local_id\030\002 \001(\005\022\032\n\022is_dur" +
+      "ability_zero\030\010 \001(\010\022+\n\023parent_ability_nam" +
+      "e\030\r \001(\0132\016.AbilityString\022\027\n\017server_buff_u" +
+      "id\030\t \001(\r\022\027\n\017apply_entity_id\030\007 \001(\r\022/\n\027par" +
+      "ent_ability_override\030\017 \001(\0132\016.AbilityStri" +
+      "ng\022\037\n\006action\030\004 \001(\0162\017.ModifierActionB\033\n\031e" +
+      "mu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1989,7 +1989,7 @@ public final class AbilityMetaModifierChangeOuterClass {
     internal_static_AbilityMetaModifierChange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_AbilityMetaModifierChange_descriptor,
-        new java.lang.String[] { "AttachedInstancedModifier", "IsAttachedParentAbility", "Properties", "Unk3300NOPKODKOHJK", "ModifierLocalId", "Unk3300PBNENPBMNCI", "ParentAbilityName", "ServerBuffUid", "ApplyEntityId", "ParentAbilityOverride", "Action", });
+        new java.lang.String[] { "AttachedInstancedModifier", "IsAttachedParentAbility", "Properties", "IsMuteRemote", "ModifierLocalId", "IsDurabilityZero", "ParentAbilityName", "ServerBuffUid", "ApplyEntityId", "ParentAbilityOverride", "Action", });
     emu.grasscutter.net.proto.AbilityAttachedModifierOuterClass.getDescriptor();
     emu.grasscutter.net.proto.AbilityStringOuterClass.getDescriptor();
     emu.grasscutter.net.proto.ModifierActionOuterClass.getDescriptor();

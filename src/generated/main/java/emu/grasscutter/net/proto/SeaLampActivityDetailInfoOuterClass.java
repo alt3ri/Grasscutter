@@ -42,10 +42,10 @@ public final class SeaLampActivityDetailInfoOuterClass {
     int getDays();
 
     /**
-     * <code>uint32 Unk3300_DGMGNJLHFMB = 8;</code>
-     * @return The unk3300DGMGNJLHFMB.
+     * <code>uint32 factor = 8;</code>
+     * @return The factor.
      */
-    int getUnk3300DGMGNJLHFMB();
+    int getFactor();
 
     /**
      * <code>uint32 progress = 5;</code>
@@ -71,10 +71,10 @@ public final class SeaLampActivityDetailInfoOuterClass {
     int getUnk3300FGHDJJCLNFN(int index);
 
     /**
-     * <code>uint32 Unk3300_GBCCJMBPBBI = 11;</code>
-     * @return The unk3300GBCCJMBPBBI.
+     * <code>uint32 contribution = 11;</code>
+     * @return The contribution.
      */
-    int getUnk3300GBCCJMBPBBI();
+    int getContribution();
 
     /**
      * <code>uint32 phase_id = 3;</code>
@@ -168,12 +168,12 @@ public final class SeaLampActivityDetailInfoOuterClass {
             }
             case 64: {
 
-              unk3300DGMGNJLHFMB_ = input.readUInt32();
+              factor_ = input.readUInt32();
               break;
             }
             case 88: {
 
-              unk3300GBCCJMBPBBI_ = input.readUInt32();
+              contribution_ = input.readUInt32();
               break;
             }
             case 112: {
@@ -274,15 +274,15 @@ public final class SeaLampActivityDetailInfoOuterClass {
       return days_;
     }
 
-    public static final int UNK3300_DGMGNJLHFMB_FIELD_NUMBER = 8;
-    private int unk3300DGMGNJLHFMB_;
+    public static final int FACTOR_FIELD_NUMBER = 8;
+    private int factor_;
     /**
-     * <code>uint32 Unk3300_DGMGNJLHFMB = 8;</code>
-     * @return The unk3300DGMGNJLHFMB.
+     * <code>uint32 factor = 8;</code>
+     * @return The factor.
      */
     @java.lang.Override
-    public int getUnk3300DGMGNJLHFMB() {
-      return unk3300DGMGNJLHFMB_;
+    public int getFactor() {
+      return factor_;
     }
 
     public static final int PROGRESS_FIELD_NUMBER = 5;
@@ -324,15 +324,15 @@ public final class SeaLampActivityDetailInfoOuterClass {
     }
     private int unk3300FGHDJJCLNFNMemoizedSerializedSize = -1;
 
-    public static final int UNK3300_GBCCJMBPBBI_FIELD_NUMBER = 11;
-    private int unk3300GBCCJMBPBBI_;
+    public static final int CONTRIBUTION_FIELD_NUMBER = 11;
+    private int contribution_;
     /**
-     * <code>uint32 Unk3300_GBCCJMBPBBI = 11;</code>
-     * @return The unk3300GBCCJMBPBBI.
+     * <code>uint32 contribution = 11;</code>
+     * @return The contribution.
      */
     @java.lang.Override
-    public int getUnk3300GBCCJMBPBBI() {
-      return unk3300GBCCJMBPBBI_;
+    public int getContribution() {
+      return contribution_;
     }
 
     public static final int PHASE_ID_FIELD_NUMBER = 3;
@@ -377,11 +377,11 @@ public final class SeaLampActivityDetailInfoOuterClass {
       if (days_ != 0) {
         output.writeUInt32(6, days_);
       }
-      if (unk3300DGMGNJLHFMB_ != 0) {
-        output.writeUInt32(8, unk3300DGMGNJLHFMB_);
+      if (factor_ != 0) {
+        output.writeUInt32(8, factor_);
       }
-      if (unk3300GBCCJMBPBBI_ != 0) {
-        output.writeUInt32(11, unk3300GBCCJMBPBBI_);
+      if (contribution_ != 0) {
+        output.writeUInt32(11, contribution_);
       }
       if (getUnk3300FGHDJJCLNFNList().size() > 0) {
         output.writeUInt32NoTag(114);
@@ -425,13 +425,13 @@ public final class SeaLampActivityDetailInfoOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(6, days_);
       }
-      if (unk3300DGMGNJLHFMB_ != 0) {
+      if (factor_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(8, unk3300DGMGNJLHFMB_);
+          .computeUInt32Size(8, factor_);
       }
-      if (unk3300GBCCJMBPBBI_ != 0) {
+      if (contribution_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(11, unk3300GBCCJMBPBBI_);
+          .computeUInt32Size(11, contribution_);
       }
       {
         int dataSize = 0;
@@ -466,14 +466,14 @@ public final class SeaLampActivityDetailInfoOuterClass {
           .equals(other.getUnk3300ODBFFAIIPMBList())) return false;
       if (getDays()
           != other.getDays()) return false;
-      if (getUnk3300DGMGNJLHFMB()
-          != other.getUnk3300DGMGNJLHFMB()) return false;
+      if (getFactor()
+          != other.getFactor()) return false;
       if (getProgress()
           != other.getProgress()) return false;
       if (!getUnk3300FGHDJJCLNFNList()
           .equals(other.getUnk3300FGHDJJCLNFNList())) return false;
-      if (getUnk3300GBCCJMBPBBI()
-          != other.getUnk3300GBCCJMBPBBI()) return false;
+      if (getContribution()
+          != other.getContribution()) return false;
       if (getPhaseId()
           != other.getPhaseId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
@@ -493,16 +493,16 @@ public final class SeaLampActivityDetailInfoOuterClass {
       }
       hash = (37 * hash) + DAYS_FIELD_NUMBER;
       hash = (53 * hash) + getDays();
-      hash = (37 * hash) + UNK3300_DGMGNJLHFMB_FIELD_NUMBER;
-      hash = (53 * hash) + getUnk3300DGMGNJLHFMB();
+      hash = (37 * hash) + FACTOR_FIELD_NUMBER;
+      hash = (53 * hash) + getFactor();
       hash = (37 * hash) + PROGRESS_FIELD_NUMBER;
       hash = (53 * hash) + getProgress();
       if (getUnk3300FGHDJJCLNFNCount() > 0) {
         hash = (37 * hash) + UNK3300_FGHDJJCLNFN_FIELD_NUMBER;
         hash = (53 * hash) + getUnk3300FGHDJJCLNFNList().hashCode();
       }
-      hash = (37 * hash) + UNK3300_GBCCJMBPBBI_FIELD_NUMBER;
-      hash = (53 * hash) + getUnk3300GBCCJMBPBBI();
+      hash = (37 * hash) + CONTRIBUTION_FIELD_NUMBER;
+      hash = (53 * hash) + getContribution();
       hash = (37 * hash) + PHASE_ID_FIELD_NUMBER;
       hash = (53 * hash) + getPhaseId();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -642,13 +642,13 @@ public final class SeaLampActivityDetailInfoOuterClass {
         bitField0_ = (bitField0_ & ~0x00000001);
         days_ = 0;
 
-        unk3300DGMGNJLHFMB_ = 0;
+        factor_ = 0;
 
         progress_ = 0;
 
         unk3300FGHDJJCLNFN_ = emptyIntList();
         bitField0_ = (bitField0_ & ~0x00000002);
-        unk3300GBCCJMBPBBI_ = 0;
+        contribution_ = 0;
 
         phaseId_ = 0;
 
@@ -685,14 +685,14 @@ public final class SeaLampActivityDetailInfoOuterClass {
         }
         result.unk3300ODBFFAIIPMB_ = unk3300ODBFFAIIPMB_;
         result.days_ = days_;
-        result.unk3300DGMGNJLHFMB_ = unk3300DGMGNJLHFMB_;
+        result.factor_ = factor_;
         result.progress_ = progress_;
         if (((bitField0_ & 0x00000002) != 0)) {
           unk3300FGHDJJCLNFN_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.unk3300FGHDJJCLNFN_ = unk3300FGHDJJCLNFN_;
-        result.unk3300GBCCJMBPBBI_ = unk3300GBCCJMBPBBI_;
+        result.contribution_ = contribution_;
         result.phaseId_ = phaseId_;
         onBuilt();
         return result;
@@ -755,8 +755,8 @@ public final class SeaLampActivityDetailInfoOuterClass {
         if (other.getDays() != 0) {
           setDays(other.getDays());
         }
-        if (other.getUnk3300DGMGNJLHFMB() != 0) {
-          setUnk3300DGMGNJLHFMB(other.getUnk3300DGMGNJLHFMB());
+        if (other.getFactor() != 0) {
+          setFactor(other.getFactor());
         }
         if (other.getProgress() != 0) {
           setProgress(other.getProgress());
@@ -771,8 +771,8 @@ public final class SeaLampActivityDetailInfoOuterClass {
           }
           onChanged();
         }
-        if (other.getUnk3300GBCCJMBPBBI() != 0) {
-          setUnk3300GBCCJMBPBBI(other.getUnk3300GBCCJMBPBBI());
+        if (other.getContribution() != 0) {
+          setContribution(other.getContribution());
         }
         if (other.getPhaseId() != 0) {
           setPhaseId(other.getPhaseId());
@@ -917,33 +917,33 @@ public final class SeaLampActivityDetailInfoOuterClass {
         return this;
       }
 
-      private int unk3300DGMGNJLHFMB_ ;
+      private int factor_ ;
       /**
-       * <code>uint32 Unk3300_DGMGNJLHFMB = 8;</code>
-       * @return The unk3300DGMGNJLHFMB.
+       * <code>uint32 factor = 8;</code>
+       * @return The factor.
        */
       @java.lang.Override
-      public int getUnk3300DGMGNJLHFMB() {
-        return unk3300DGMGNJLHFMB_;
+      public int getFactor() {
+        return factor_;
       }
       /**
-       * <code>uint32 Unk3300_DGMGNJLHFMB = 8;</code>
-       * @param value The unk3300DGMGNJLHFMB to set.
+       * <code>uint32 factor = 8;</code>
+       * @param value The factor to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300DGMGNJLHFMB(int value) {
+      public Builder setFactor(int value) {
         
-        unk3300DGMGNJLHFMB_ = value;
+        factor_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 Unk3300_DGMGNJLHFMB = 8;</code>
+       * <code>uint32 factor = 8;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300DGMGNJLHFMB() {
+      public Builder clearFactor() {
         
-        unk3300DGMGNJLHFMB_ = 0;
+        factor_ = 0;
         onChanged();
         return this;
       }
@@ -1058,33 +1058,33 @@ public final class SeaLampActivityDetailInfoOuterClass {
         return this;
       }
 
-      private int unk3300GBCCJMBPBBI_ ;
+      private int contribution_ ;
       /**
-       * <code>uint32 Unk3300_GBCCJMBPBBI = 11;</code>
-       * @return The unk3300GBCCJMBPBBI.
+       * <code>uint32 contribution = 11;</code>
+       * @return The contribution.
        */
       @java.lang.Override
-      public int getUnk3300GBCCJMBPBBI() {
-        return unk3300GBCCJMBPBBI_;
+      public int getContribution() {
+        return contribution_;
       }
       /**
-       * <code>uint32 Unk3300_GBCCJMBPBBI = 11;</code>
-       * @param value The unk3300GBCCJMBPBBI to set.
+       * <code>uint32 contribution = 11;</code>
+       * @param value The contribution to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300GBCCJMBPBBI(int value) {
+      public Builder setContribution(int value) {
         
-        unk3300GBCCJMBPBBI_ = value;
+        contribution_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 Unk3300_GBCCJMBPBBI = 11;</code>
+       * <code>uint32 contribution = 11;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300GBCCJMBPBBI() {
+      public Builder clearContribution() {
         
-        unk3300GBCCJMBPBBI_ = 0;
+        contribution_ = 0;
         onChanged();
         return this;
       }
@@ -1186,13 +1186,13 @@ public final class SeaLampActivityDetailInfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\037SeaLampActivityDetailInfo.proto\"\301\001\n\031Se" +
+      "\n\037SeaLampActivityDetailInfo.proto\"\255\001\n\031Se" +
       "aLampActivityDetailInfo\022\033\n\023Unk3300_ODBFF" +
-      "AIIPMB\030\002 \003(\r\022\014\n\004days\030\006 \001(\r\022\033\n\023Unk3300_DG" +
-      "MGNJLHFMB\030\010 \001(\r\022\020\n\010progress\030\005 \001(\r\022\033\n\023Unk" +
-      "3300_FGHDJJCLNFN\030\016 \003(\r\022\033\n\023Unk3300_GBCCJM" +
-      "BPBBI\030\013 \001(\r\022\020\n\010phase_id\030\003 \001(\rB\033\n\031emu.gra" +
-      "sscutter.net.protob\006proto3"
+      "AIIPMB\030\002 \003(\r\022\014\n\004days\030\006 \001(\r\022\016\n\006factor\030\010 \001" +
+      "(\r\022\020\n\010progress\030\005 \001(\r\022\033\n\023Unk3300_FGHDJJCL" +
+      "NFN\030\016 \003(\r\022\024\n\014contribution\030\013 \001(\r\022\020\n\010phase" +
+      "_id\030\003 \001(\rB\033\n\031emu.grasscutter.net.protob\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1203,7 +1203,7 @@ public final class SeaLampActivityDetailInfoOuterClass {
     internal_static_SeaLampActivityDetailInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SeaLampActivityDetailInfo_descriptor,
-        new java.lang.String[] { "Unk3300ODBFFAIIPMB", "Days", "Unk3300DGMGNJLHFMB", "Progress", "Unk3300FGHDJJCLNFN", "Unk3300GBCCJMBPBBI", "PhaseId", });
+        new java.lang.String[] { "Unk3300ODBFFAIIPMB", "Days", "Factor", "Progress", "Unk3300FGHDJJCLNFN", "Contribution", "PhaseId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

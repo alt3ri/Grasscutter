@@ -25,16 +25,6 @@ public final class HomeEnterEditModeFinishRspOuterClass {
     int getRetcode();
   }
   /**
-   * <pre>
-   * enum CmdId {
-   *   option allow_alias = true;
-   *   NONE = 0;
-   *   CMD_ID = 4583;
-   *   ENET_CHANNEL_ID = 0;
-   *   ENET_IS_RELIABLE = 1;
-   * }
-   * </pre>
-   *
    * Protobuf type {@code HomeEnterEditModeFinishRsp}
    */
   public static final class HomeEnterEditModeFinishRsp extends
@@ -114,6 +104,137 @@ public final class HomeEnterEditModeFinishRspOuterClass {
       return emu.grasscutter.net.proto.HomeEnterEditModeFinishRspOuterClass.internal_static_HomeEnterEditModeFinishRsp_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               emu.grasscutter.net.proto.HomeEnterEditModeFinishRspOuterClass.HomeEnterEditModeFinishRsp.class, emu.grasscutter.net.proto.HomeEnterEditModeFinishRspOuterClass.HomeEnterEditModeFinishRsp.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code HomeEnterEditModeFinishRsp.BEGILMANMEH}
+     */
+    public enum BEGILMANMEH
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0, 0),
+      /**
+       * <code>PEPPOHPHJOJ = 4566;</code>
+       */
+      PEPPOHPHJOJ(1, 4566),
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      NNBKOLMPOEA(3, 1),
+      UNRECOGNIZED(-1, -1),
+      ;
+
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final BEGILMANMEH DCDNILFDFLB = NONE;
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>PEPPOHPHJOJ = 4566;</code>
+       */
+      public static final int PEPPOHPHJOJ_VALUE = 4566;
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final int DCDNILFDFLB_VALUE = 0;
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      public static final int NNBKOLMPOEA_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (index == -1) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static BEGILMANMEH valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static BEGILMANMEH forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 4566: return PEPPOHPHJOJ;
+          case 1: return NNBKOLMPOEA;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<BEGILMANMEH>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          BEGILMANMEH> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<BEGILMANMEH>() {
+              public BEGILMANMEH findValueByNumber(int number) {
+                return BEGILMANMEH.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (index == -1) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return emu.grasscutter.net.proto.HomeEnterEditModeFinishRspOuterClass.HomeEnterEditModeFinishRsp.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final BEGILMANMEH[] VALUES = getStaticValuesArray();
+      private static BEGILMANMEH[] getStaticValuesArray() {
+        return new BEGILMANMEH[] {
+          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, 
+        };
+      }
+      public static BEGILMANMEH valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private BEGILMANMEH(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:HomeEnterEditModeFinishRsp.BEGILMANMEH)
     }
 
     public static final int RETCODE_FIELD_NUMBER = 15;
@@ -283,16 +404,6 @@ public final class HomeEnterEditModeFinishRspOuterClass {
       return builder;
     }
     /**
-     * <pre>
-     * enum CmdId {
-     *   option allow_alias = true;
-     *   NONE = 0;
-     *   CMD_ID = 4583;
-     *   ENET_CHANNEL_ID = 0;
-     *   ENET_IS_RELIABLE = 1;
-     * }
-     * </pre>
-     *
      * Protobuf type {@code HomeEnterEditModeFinishRsp}
      */
     public static final class Builder extends
@@ -536,9 +647,11 @@ public final class HomeEnterEditModeFinishRspOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n HomeEnterEditModeFinishRsp.proto\"-\n\032Ho" +
+      "\n HomeEnterEditModeFinishRsp.proto\"~\n\032Ho" +
       "meEnterEditModeFinishRsp\022\017\n\007retcode\030\017 \001(" +
-      "\005B\033\n\031emu.grasscutter.net.protob\006proto3"
+      "\005\"O\n\013BEGILMANMEH\022\010\n\004NONE\020\000\022\020\n\013PEPPOHPHJO" +
+      "J\020\326#\022\017\n\013DCDNILFDFLB\020\000\022\017\n\013NNBKOLMPOEA\020\001\032\002" +
+      "\020\001B\033\n\031emu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

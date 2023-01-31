@@ -19,23 +19,12 @@ public final class TowerAllDataReqOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>bool is_interact = 15;</code>
+     * <code>bool isInteract = 15;</code>
      * @return The isInteract.
      */
     boolean getIsInteract();
   }
   /**
-   * <pre>
-   * enum CmdId {
-   *   option allow_alias = true;
-   *   NONE = 0;
-   *   CMD_ID = 2447;
-   *   ENET_CHANNEL_ID = 0;
-   *   ENET_IS_RELIABLE = 1;
-   *   IS_ALLOW_CLIENT = 1;
-   * }
-   * </pre>
-   *
    * Protobuf type {@code TowerAllDataReq}
    */
   public static final class TowerAllDataReq extends
@@ -117,10 +106,149 @@ public final class TowerAllDataReqOuterClass {
               emu.grasscutter.net.proto.TowerAllDataReqOuterClass.TowerAllDataReq.class, emu.grasscutter.net.proto.TowerAllDataReqOuterClass.TowerAllDataReq.Builder.class);
     }
 
-    public static final int IS_INTERACT_FIELD_NUMBER = 15;
+    /**
+     * Protobuf enum {@code TowerAllDataReq.OEKPDBADMMB}
+     */
+    public enum OEKPDBADMMB
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>NONE = 0;</code>
+       */
+      NONE(0, 0),
+      /**
+       * <code>PEPPOHPHJOJ = 2470;</code>
+       */
+      PEPPOHPHJOJ(1, 2470),
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      NNBKOLMPOEA(3, 1),
+      UNRECOGNIZED(-1, -1),
+      ;
+
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final OEKPDBADMMB DCDNILFDFLB = NONE;
+      /**
+       * <code>EAJIABGAOCI = 1;</code>
+       */
+      public static final OEKPDBADMMB EAJIABGAOCI = NNBKOLMPOEA;
+      /**
+       * <code>NONE = 0;</code>
+       */
+      public static final int NONE_VALUE = 0;
+      /**
+       * <code>PEPPOHPHJOJ = 2470;</code>
+       */
+      public static final int PEPPOHPHJOJ_VALUE = 2470;
+      /**
+       * <code>DCDNILFDFLB = 0;</code>
+       */
+      public static final int DCDNILFDFLB_VALUE = 0;
+      /**
+       * <code>NNBKOLMPOEA = 1;</code>
+       */
+      public static final int NNBKOLMPOEA_VALUE = 1;
+      /**
+       * <code>EAJIABGAOCI = 1;</code>
+       */
+      public static final int EAJIABGAOCI_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (index == -1) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static OEKPDBADMMB valueOf(int value) {
+        return forNumber(value);
+      }
+
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
+      public static OEKPDBADMMB forNumber(int value) {
+        switch (value) {
+          case 0: return NONE;
+          case 2470: return PEPPOHPHJOJ;
+          case 1: return NNBKOLMPOEA;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<OEKPDBADMMB>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          OEKPDBADMMB> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<OEKPDBADMMB>() {
+              public OEKPDBADMMB findValueByNumber(int number) {
+                return OEKPDBADMMB.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        if (index == -1) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return emu.grasscutter.net.proto.TowerAllDataReqOuterClass.TowerAllDataReq.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final OEKPDBADMMB[] VALUES = getStaticValuesArray();
+      private static OEKPDBADMMB[] getStaticValuesArray() {
+        return new OEKPDBADMMB[] {
+          NONE, PEPPOHPHJOJ, DCDNILFDFLB, NNBKOLMPOEA, EAJIABGAOCI, 
+        };
+      }
+      public static OEKPDBADMMB valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private OEKPDBADMMB(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:TowerAllDataReq.OEKPDBADMMB)
+    }
+
+    public static final int ISINTERACT_FIELD_NUMBER = 15;
     private boolean isInteract_;
     /**
-     * <code>bool is_interact = 15;</code>
+     * <code>bool isInteract = 15;</code>
      * @return The isInteract.
      */
     @java.lang.Override
@@ -186,7 +314,7 @@ public final class TowerAllDataReqOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + IS_INTERACT_FIELD_NUMBER;
+      hash = (37 * hash) + ISINTERACT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsInteract());
       hash = (29 * hash) + unknownFields.hashCode();
@@ -285,17 +413,6 @@ public final class TowerAllDataReqOuterClass {
       return builder;
     }
     /**
-     * <pre>
-     * enum CmdId {
-     *   option allow_alias = true;
-     *   NONE = 0;
-     *   CMD_ID = 2447;
-     *   ENET_CHANNEL_ID = 0;
-     *   ENET_IS_RELIABLE = 1;
-     *   IS_ALLOW_CLIENT = 1;
-     * }
-     * </pre>
-     *
      * Protobuf type {@code TowerAllDataReq}
      */
     public static final class Builder extends
@@ -444,7 +561,7 @@ public final class TowerAllDataReqOuterClass {
 
       private boolean isInteract_ ;
       /**
-       * <code>bool is_interact = 15;</code>
+       * <code>bool isInteract = 15;</code>
        * @return The isInteract.
        */
       @java.lang.Override
@@ -452,7 +569,7 @@ public final class TowerAllDataReqOuterClass {
         return isInteract_;
       }
       /**
-       * <code>bool is_interact = 15;</code>
+       * <code>bool isInteract = 15;</code>
        * @param value The isInteract to set.
        * @return This builder for chaining.
        */
@@ -463,7 +580,7 @@ public final class TowerAllDataReqOuterClass {
         return this;
       }
       /**
-       * <code>bool is_interact = 15;</code>
+       * <code>bool isInteract = 15;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsInteract() {
@@ -539,9 +656,11 @@ public final class TowerAllDataReqOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\025TowerAllDataReq.proto\"&\n\017TowerAllDataR" +
-      "eq\022\023\n\013is_interact\030\017 \001(\010B\033\n\031emu.grasscutt" +
-      "er.net.protob\006proto3"
+      "\n\025TowerAllDataReq.proto\"\207\001\n\017TowerAllData" +
+      "Req\022\022\n\nisInteract\030\017 \001(\010\"`\n\013OEKPDBADMMB\022\010" +
+      "\n\004NONE\020\000\022\020\n\013PEPPOHPHJOJ\020\246\023\022\017\n\013DCDNILFDFL" +
+      "B\020\000\022\017\n\013NNBKOLMPOEA\020\001\022\017\n\013EAJIABGAOCI\020\001\032\002\020" +
+      "\001B\033\n\031emu.grasscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

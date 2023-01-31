@@ -19,34 +19,34 @@ public final class DailyTaskInfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 reward_id = 7;</code>
-     * @return The rewardId.
-     */
-    int getRewardId();
-
-    /**
-     * <code>uint32 finish_progress = 12;</code>
+     * <code>uint32 finishProgress = 9;</code>
      * @return The finishProgress.
      */
     int getFinishProgress();
 
     /**
-     * <code>bool is_finished = 2;</code>
+     * <code>bool isFinished = 3;</code>
      * @return The isFinished.
      */
     boolean getIsFinished();
 
     /**
-     * <code>uint32 daily_task_id = 5;</code>
+     * <code>uint32 progress = 7;</code>
+     * @return The progress.
+     */
+    int getProgress();
+
+    /**
+     * <code>uint32 dailyTaskId = 5;</code>
      * @return The dailyTaskId.
      */
     int getDailyTaskId();
 
     /**
-     * <code>uint32 progress = 10;</code>
-     * @return The progress.
+     * <code>uint32 rewardId = 14;</code>
+     * @return The rewardId.
      */
-    int getProgress();
+    int getRewardId();
   }
   /**
    * Protobuf type {@code DailyTaskInfo}
@@ -93,7 +93,7 @@ public final class DailyTaskInfoOuterClass {
             case 0:
               done = true;
               break;
-            case 16: {
+            case 24: {
 
               isFinished_ = input.readBool();
               break;
@@ -105,17 +105,17 @@ public final class DailyTaskInfoOuterClass {
             }
             case 56: {
 
-              rewardId_ = input.readUInt32();
-              break;
-            }
-            case 80: {
-
               progress_ = input.readUInt32();
               break;
             }
-            case 96: {
+            case 72: {
 
               finishProgress_ = input.readUInt32();
+              break;
+            }
+            case 112: {
+
+              rewardId_ = input.readUInt32();
               break;
             }
             default: {
@@ -150,21 +150,10 @@ public final class DailyTaskInfoOuterClass {
               emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.class, emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.Builder.class);
     }
 
-    public static final int REWARD_ID_FIELD_NUMBER = 7;
-    private int rewardId_;
-    /**
-     * <code>uint32 reward_id = 7;</code>
-     * @return The rewardId.
-     */
-    @java.lang.Override
-    public int getRewardId() {
-      return rewardId_;
-    }
-
-    public static final int FINISH_PROGRESS_FIELD_NUMBER = 12;
+    public static final int FINISHPROGRESS_FIELD_NUMBER = 9;
     private int finishProgress_;
     /**
-     * <code>uint32 finish_progress = 12;</code>
+     * <code>uint32 finishProgress = 9;</code>
      * @return The finishProgress.
      */
     @java.lang.Override
@@ -172,10 +161,10 @@ public final class DailyTaskInfoOuterClass {
       return finishProgress_;
     }
 
-    public static final int IS_FINISHED_FIELD_NUMBER = 2;
+    public static final int ISFINISHED_FIELD_NUMBER = 3;
     private boolean isFinished_;
     /**
-     * <code>bool is_finished = 2;</code>
+     * <code>bool isFinished = 3;</code>
      * @return The isFinished.
      */
     @java.lang.Override
@@ -183,10 +172,21 @@ public final class DailyTaskInfoOuterClass {
       return isFinished_;
     }
 
-    public static final int DAILY_TASK_ID_FIELD_NUMBER = 5;
+    public static final int PROGRESS_FIELD_NUMBER = 7;
+    private int progress_;
+    /**
+     * <code>uint32 progress = 7;</code>
+     * @return The progress.
+     */
+    @java.lang.Override
+    public int getProgress() {
+      return progress_;
+    }
+
+    public static final int DAILYTASKID_FIELD_NUMBER = 5;
     private int dailyTaskId_;
     /**
-     * <code>uint32 daily_task_id = 5;</code>
+     * <code>uint32 dailyTaskId = 5;</code>
      * @return The dailyTaskId.
      */
     @java.lang.Override
@@ -194,15 +194,15 @@ public final class DailyTaskInfoOuterClass {
       return dailyTaskId_;
     }
 
-    public static final int PROGRESS_FIELD_NUMBER = 10;
-    private int progress_;
+    public static final int REWARDID_FIELD_NUMBER = 14;
+    private int rewardId_;
     /**
-     * <code>uint32 progress = 10;</code>
-     * @return The progress.
+     * <code>uint32 rewardId = 14;</code>
+     * @return The rewardId.
      */
     @java.lang.Override
-    public int getProgress() {
-      return progress_;
+    public int getRewardId() {
+      return rewardId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -220,19 +220,19 @@ public final class DailyTaskInfoOuterClass {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (isFinished_ != false) {
-        output.writeBool(2, isFinished_);
+        output.writeBool(3, isFinished_);
       }
       if (dailyTaskId_ != 0) {
         output.writeUInt32(5, dailyTaskId_);
       }
-      if (rewardId_ != 0) {
-        output.writeUInt32(7, rewardId_);
-      }
       if (progress_ != 0) {
-        output.writeUInt32(10, progress_);
+        output.writeUInt32(7, progress_);
       }
       if (finishProgress_ != 0) {
-        output.writeUInt32(12, finishProgress_);
+        output.writeUInt32(9, finishProgress_);
+      }
+      if (rewardId_ != 0) {
+        output.writeUInt32(14, rewardId_);
       }
       unknownFields.writeTo(output);
     }
@@ -245,23 +245,23 @@ public final class DailyTaskInfoOuterClass {
       size = 0;
       if (isFinished_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, isFinished_);
+          .computeBoolSize(3, isFinished_);
       }
       if (dailyTaskId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(5, dailyTaskId_);
       }
-      if (rewardId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, rewardId_);
-      }
       if (progress_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(10, progress_);
+          .computeUInt32Size(7, progress_);
       }
       if (finishProgress_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(12, finishProgress_);
+          .computeUInt32Size(9, finishProgress_);
+      }
+      if (rewardId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(14, rewardId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -278,16 +278,16 @@ public final class DailyTaskInfoOuterClass {
       }
       emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo other = (emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo) obj;
 
-      if (getRewardId()
-          != other.getRewardId()) return false;
       if (getFinishProgress()
           != other.getFinishProgress()) return false;
       if (getIsFinished()
           != other.getIsFinished()) return false;
-      if (getDailyTaskId()
-          != other.getDailyTaskId()) return false;
       if (getProgress()
           != other.getProgress()) return false;
+      if (getDailyTaskId()
+          != other.getDailyTaskId()) return false;
+      if (getRewardId()
+          != other.getRewardId()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -299,17 +299,17 @@ public final class DailyTaskInfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + REWARD_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getRewardId();
-      hash = (37 * hash) + FINISH_PROGRESS_FIELD_NUMBER;
+      hash = (37 * hash) + FINISHPROGRESS_FIELD_NUMBER;
       hash = (53 * hash) + getFinishProgress();
-      hash = (37 * hash) + IS_FINISHED_FIELD_NUMBER;
+      hash = (37 * hash) + ISFINISHED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsFinished());
-      hash = (37 * hash) + DAILY_TASK_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getDailyTaskId();
       hash = (37 * hash) + PROGRESS_FIELD_NUMBER;
       hash = (53 * hash) + getProgress();
+      hash = (37 * hash) + DAILYTASKID_FIELD_NUMBER;
+      hash = (53 * hash) + getDailyTaskId();
+      hash = (37 * hash) + REWARDID_FIELD_NUMBER;
+      hash = (53 * hash) + getRewardId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -443,15 +443,15 @@ public final class DailyTaskInfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        rewardId_ = 0;
-
         finishProgress_ = 0;
 
         isFinished_ = false;
 
+        progress_ = 0;
+
         dailyTaskId_ = 0;
 
-        progress_ = 0;
+        rewardId_ = 0;
 
         return this;
       }
@@ -479,11 +479,11 @@ public final class DailyTaskInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo buildPartial() {
         emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo result = new emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo(this);
-        result.rewardId_ = rewardId_;
         result.finishProgress_ = finishProgress_;
         result.isFinished_ = isFinished_;
-        result.dailyTaskId_ = dailyTaskId_;
         result.progress_ = progress_;
+        result.dailyTaskId_ = dailyTaskId_;
+        result.rewardId_ = rewardId_;
         onBuilt();
         return result;
       }
@@ -532,20 +532,20 @@ public final class DailyTaskInfoOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo other) {
         if (other == emu.grasscutter.net.proto.DailyTaskInfoOuterClass.DailyTaskInfo.getDefaultInstance()) return this;
-        if (other.getRewardId() != 0) {
-          setRewardId(other.getRewardId());
-        }
         if (other.getFinishProgress() != 0) {
           setFinishProgress(other.getFinishProgress());
         }
         if (other.getIsFinished() != false) {
           setIsFinished(other.getIsFinished());
         }
+        if (other.getProgress() != 0) {
+          setProgress(other.getProgress());
+        }
         if (other.getDailyTaskId() != 0) {
           setDailyTaskId(other.getDailyTaskId());
         }
-        if (other.getProgress() != 0) {
-          setProgress(other.getProgress());
+        if (other.getRewardId() != 0) {
+          setRewardId(other.getRewardId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -576,40 +576,9 @@ public final class DailyTaskInfoOuterClass {
         return this;
       }
 
-      private int rewardId_ ;
-      /**
-       * <code>uint32 reward_id = 7;</code>
-       * @return The rewardId.
-       */
-      @java.lang.Override
-      public int getRewardId() {
-        return rewardId_;
-      }
-      /**
-       * <code>uint32 reward_id = 7;</code>
-       * @param value The rewardId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRewardId(int value) {
-        
-        rewardId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 reward_id = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRewardId() {
-        
-        rewardId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int finishProgress_ ;
       /**
-       * <code>uint32 finish_progress = 12;</code>
+       * <code>uint32 finishProgress = 9;</code>
        * @return The finishProgress.
        */
       @java.lang.Override
@@ -617,7 +586,7 @@ public final class DailyTaskInfoOuterClass {
         return finishProgress_;
       }
       /**
-       * <code>uint32 finish_progress = 12;</code>
+       * <code>uint32 finishProgress = 9;</code>
        * @param value The finishProgress to set.
        * @return This builder for chaining.
        */
@@ -628,7 +597,7 @@ public final class DailyTaskInfoOuterClass {
         return this;
       }
       /**
-       * <code>uint32 finish_progress = 12;</code>
+       * <code>uint32 finishProgress = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearFinishProgress() {
@@ -640,7 +609,7 @@ public final class DailyTaskInfoOuterClass {
 
       private boolean isFinished_ ;
       /**
-       * <code>bool is_finished = 2;</code>
+       * <code>bool isFinished = 3;</code>
        * @return The isFinished.
        */
       @java.lang.Override
@@ -648,7 +617,7 @@ public final class DailyTaskInfoOuterClass {
         return isFinished_;
       }
       /**
-       * <code>bool is_finished = 2;</code>
+       * <code>bool isFinished = 3;</code>
        * @param value The isFinished to set.
        * @return This builder for chaining.
        */
@@ -659,7 +628,7 @@ public final class DailyTaskInfoOuterClass {
         return this;
       }
       /**
-       * <code>bool is_finished = 2;</code>
+       * <code>bool isFinished = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearIsFinished() {
@@ -669,40 +638,9 @@ public final class DailyTaskInfoOuterClass {
         return this;
       }
 
-      private int dailyTaskId_ ;
-      /**
-       * <code>uint32 daily_task_id = 5;</code>
-       * @return The dailyTaskId.
-       */
-      @java.lang.Override
-      public int getDailyTaskId() {
-        return dailyTaskId_;
-      }
-      /**
-       * <code>uint32 daily_task_id = 5;</code>
-       * @param value The dailyTaskId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDailyTaskId(int value) {
-        
-        dailyTaskId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 daily_task_id = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDailyTaskId() {
-        
-        dailyTaskId_ = 0;
-        onChanged();
-        return this;
-      }
-
       private int progress_ ;
       /**
-       * <code>uint32 progress = 10;</code>
+       * <code>uint32 progress = 7;</code>
        * @return The progress.
        */
       @java.lang.Override
@@ -710,7 +648,7 @@ public final class DailyTaskInfoOuterClass {
         return progress_;
       }
       /**
-       * <code>uint32 progress = 10;</code>
+       * <code>uint32 progress = 7;</code>
        * @param value The progress to set.
        * @return This builder for chaining.
        */
@@ -721,12 +659,74 @@ public final class DailyTaskInfoOuterClass {
         return this;
       }
       /**
-       * <code>uint32 progress = 10;</code>
+       * <code>uint32 progress = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearProgress() {
         
         progress_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int dailyTaskId_ ;
+      /**
+       * <code>uint32 dailyTaskId = 5;</code>
+       * @return The dailyTaskId.
+       */
+      @java.lang.Override
+      public int getDailyTaskId() {
+        return dailyTaskId_;
+      }
+      /**
+       * <code>uint32 dailyTaskId = 5;</code>
+       * @param value The dailyTaskId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDailyTaskId(int value) {
+        
+        dailyTaskId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 dailyTaskId = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDailyTaskId() {
+        
+        dailyTaskId_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int rewardId_ ;
+      /**
+       * <code>uint32 rewardId = 14;</code>
+       * @return The rewardId.
+       */
+      @java.lang.Override
+      public int getRewardId() {
+        return rewardId_;
+      }
+      /**
+       * <code>uint32 rewardId = 14;</code>
+       * @param value The rewardId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRewardId(int value) {
+        
+        rewardId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 rewardId = 14;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRewardId() {
+        
+        rewardId_ = 0;
         onChanged();
         return this;
       }
@@ -797,11 +797,11 @@ public final class DailyTaskInfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\023DailyTaskInfo.proto\"y\n\rDailyTaskInfo\022\021" +
-      "\n\treward_id\030\007 \001(\r\022\027\n\017finish_progress\030\014 \001" +
-      "(\r\022\023\n\013is_finished\030\002 \001(\010\022\025\n\rdaily_task_id" +
-      "\030\005 \001(\r\022\020\n\010progress\030\n \001(\rB\033\n\031emu.grasscut" +
-      "ter.net.protob\006proto3"
+      "\n\023DailyTaskInfo.proto\"t\n\rDailyTaskInfo\022\026" +
+      "\n\016finishProgress\030\t \001(\r\022\022\n\nisFinished\030\003 \001" +
+      "(\010\022\020\n\010progress\030\007 \001(\r\022\023\n\013dailyTaskId\030\005 \001(" +
+      "\r\022\020\n\010rewardId\030\016 \001(\rB\033\n\031emu.grasscutter.n" +
+      "et.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -812,7 +812,7 @@ public final class DailyTaskInfoOuterClass {
     internal_static_DailyTaskInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DailyTaskInfo_descriptor,
-        new java.lang.String[] { "RewardId", "FinishProgress", "IsFinished", "DailyTaskId", "Progress", });
+        new java.lang.String[] { "FinishProgress", "IsFinished", "Progress", "DailyTaskId", "RewardId", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

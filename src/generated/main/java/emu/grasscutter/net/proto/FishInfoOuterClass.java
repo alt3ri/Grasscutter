@@ -19,16 +19,16 @@ public final class FishInfoOuterClass {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>uint32 Unk3300_AKFBFEDCELN = 14;</code>
-     * @return The unk3300AKFBFEDCELN.
+     * <code>uint32 pjkdcbfhaoo = 4;</code>
+     * @return The pjkdcbfhaoo.
      */
-    int getUnk3300AKFBFEDCELN();
+    int getPjkdcbfhaoo();
 
     /**
-     * <code>uint32 Unk3300_FIICLBEFHLL = 7;</code>
-     * @return The unk3300FIICLBEFHLL.
+     * <code>uint32 defebhbifge = 6;</code>
+     * @return The defebhbifge.
      */
-    int getUnk3300FIICLBEFHLL();
+    int getDefebhbifge();
   }
   /**
    * Protobuf type {@code FishInfo}
@@ -75,14 +75,14 @@ public final class FishInfoOuterClass {
             case 0:
               done = true;
               break;
-            case 56: {
+            case 32: {
 
-              unk3300FIICLBEFHLL_ = input.readUInt32();
+              pjkdcbfhaoo_ = input.readUInt32();
               break;
             }
-            case 112: {
+            case 48: {
 
-              unk3300AKFBFEDCELN_ = input.readUInt32();
+              defebhbifge_ = input.readUInt32();
               break;
             }
             default: {
@@ -117,26 +117,26 @@ public final class FishInfoOuterClass {
               emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo.class, emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo.Builder.class);
     }
 
-    public static final int UNK3300_AKFBFEDCELN_FIELD_NUMBER = 14;
-    private int unk3300AKFBFEDCELN_;
+    public static final int PJKDCBFHAOO_FIELD_NUMBER = 4;
+    private int pjkdcbfhaoo_;
     /**
-     * <code>uint32 Unk3300_AKFBFEDCELN = 14;</code>
-     * @return The unk3300AKFBFEDCELN.
+     * <code>uint32 pjkdcbfhaoo = 4;</code>
+     * @return The pjkdcbfhaoo.
      */
     @java.lang.Override
-    public int getUnk3300AKFBFEDCELN() {
-      return unk3300AKFBFEDCELN_;
+    public int getPjkdcbfhaoo() {
+      return pjkdcbfhaoo_;
     }
 
-    public static final int UNK3300_FIICLBEFHLL_FIELD_NUMBER = 7;
-    private int unk3300FIICLBEFHLL_;
+    public static final int DEFEBHBIFGE_FIELD_NUMBER = 6;
+    private int defebhbifge_;
     /**
-     * <code>uint32 Unk3300_FIICLBEFHLL = 7;</code>
-     * @return The unk3300FIICLBEFHLL.
+     * <code>uint32 defebhbifge = 6;</code>
+     * @return The defebhbifge.
      */
     @java.lang.Override
-    public int getUnk3300FIICLBEFHLL() {
-      return unk3300FIICLBEFHLL_;
+    public int getDefebhbifge() {
+      return defebhbifge_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -153,11 +153,11 @@ public final class FishInfoOuterClass {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (unk3300FIICLBEFHLL_ != 0) {
-        output.writeUInt32(7, unk3300FIICLBEFHLL_);
+      if (pjkdcbfhaoo_ != 0) {
+        output.writeUInt32(4, pjkdcbfhaoo_);
       }
-      if (unk3300AKFBFEDCELN_ != 0) {
-        output.writeUInt32(14, unk3300AKFBFEDCELN_);
+      if (defebhbifge_ != 0) {
+        output.writeUInt32(6, defebhbifge_);
       }
       unknownFields.writeTo(output);
     }
@@ -168,13 +168,13 @@ public final class FishInfoOuterClass {
       if (size != -1) return size;
 
       size = 0;
-      if (unk3300FIICLBEFHLL_ != 0) {
+      if (pjkdcbfhaoo_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(7, unk3300FIICLBEFHLL_);
+          .computeUInt32Size(4, pjkdcbfhaoo_);
       }
-      if (unk3300AKFBFEDCELN_ != 0) {
+      if (defebhbifge_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(14, unk3300AKFBFEDCELN_);
+          .computeUInt32Size(6, defebhbifge_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -191,10 +191,10 @@ public final class FishInfoOuterClass {
       }
       emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo other = (emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo) obj;
 
-      if (getUnk3300AKFBFEDCELN()
-          != other.getUnk3300AKFBFEDCELN()) return false;
-      if (getUnk3300FIICLBEFHLL()
-          != other.getUnk3300FIICLBEFHLL()) return false;
+      if (getPjkdcbfhaoo()
+          != other.getPjkdcbfhaoo()) return false;
+      if (getDefebhbifge()
+          != other.getDefebhbifge()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -206,10 +206,10 @@ public final class FishInfoOuterClass {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + UNK3300_AKFBFEDCELN_FIELD_NUMBER;
-      hash = (53 * hash) + getUnk3300AKFBFEDCELN();
-      hash = (37 * hash) + UNK3300_FIICLBEFHLL_FIELD_NUMBER;
-      hash = (53 * hash) + getUnk3300FIICLBEFHLL();
+      hash = (37 * hash) + PJKDCBFHAOO_FIELD_NUMBER;
+      hash = (53 * hash) + getPjkdcbfhaoo();
+      hash = (37 * hash) + DEFEBHBIFGE_FIELD_NUMBER;
+      hash = (53 * hash) + getDefebhbifge();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -343,9 +343,9 @@ public final class FishInfoOuterClass {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        unk3300AKFBFEDCELN_ = 0;
+        pjkdcbfhaoo_ = 0;
 
-        unk3300FIICLBEFHLL_ = 0;
+        defebhbifge_ = 0;
 
         return this;
       }
@@ -373,8 +373,8 @@ public final class FishInfoOuterClass {
       @java.lang.Override
       public emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo buildPartial() {
         emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo result = new emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo(this);
-        result.unk3300AKFBFEDCELN_ = unk3300AKFBFEDCELN_;
-        result.unk3300FIICLBEFHLL_ = unk3300FIICLBEFHLL_;
+        result.pjkdcbfhaoo_ = pjkdcbfhaoo_;
+        result.defebhbifge_ = defebhbifge_;
         onBuilt();
         return result;
       }
@@ -423,11 +423,11 @@ public final class FishInfoOuterClass {
 
       public Builder mergeFrom(emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo other) {
         if (other == emu.grasscutter.net.proto.FishInfoOuterClass.FishInfo.getDefaultInstance()) return this;
-        if (other.getUnk3300AKFBFEDCELN() != 0) {
-          setUnk3300AKFBFEDCELN(other.getUnk3300AKFBFEDCELN());
+        if (other.getPjkdcbfhaoo() != 0) {
+          setPjkdcbfhaoo(other.getPjkdcbfhaoo());
         }
-        if (other.getUnk3300FIICLBEFHLL() != 0) {
-          setUnk3300FIICLBEFHLL(other.getUnk3300FIICLBEFHLL());
+        if (other.getDefebhbifge() != 0) {
+          setDefebhbifge(other.getDefebhbifge());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -458,64 +458,64 @@ public final class FishInfoOuterClass {
         return this;
       }
 
-      private int unk3300AKFBFEDCELN_ ;
+      private int pjkdcbfhaoo_ ;
       /**
-       * <code>uint32 Unk3300_AKFBFEDCELN = 14;</code>
-       * @return The unk3300AKFBFEDCELN.
+       * <code>uint32 pjkdcbfhaoo = 4;</code>
+       * @return The pjkdcbfhaoo.
        */
       @java.lang.Override
-      public int getUnk3300AKFBFEDCELN() {
-        return unk3300AKFBFEDCELN_;
+      public int getPjkdcbfhaoo() {
+        return pjkdcbfhaoo_;
       }
       /**
-       * <code>uint32 Unk3300_AKFBFEDCELN = 14;</code>
-       * @param value The unk3300AKFBFEDCELN to set.
+       * <code>uint32 pjkdcbfhaoo = 4;</code>
+       * @param value The pjkdcbfhaoo to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300AKFBFEDCELN(int value) {
+      public Builder setPjkdcbfhaoo(int value) {
         
-        unk3300AKFBFEDCELN_ = value;
+        pjkdcbfhaoo_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 Unk3300_AKFBFEDCELN = 14;</code>
+       * <code>uint32 pjkdcbfhaoo = 4;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300AKFBFEDCELN() {
+      public Builder clearPjkdcbfhaoo() {
         
-        unk3300AKFBFEDCELN_ = 0;
+        pjkdcbfhaoo_ = 0;
         onChanged();
         return this;
       }
 
-      private int unk3300FIICLBEFHLL_ ;
+      private int defebhbifge_ ;
       /**
-       * <code>uint32 Unk3300_FIICLBEFHLL = 7;</code>
-       * @return The unk3300FIICLBEFHLL.
+       * <code>uint32 defebhbifge = 6;</code>
+       * @return The defebhbifge.
        */
       @java.lang.Override
-      public int getUnk3300FIICLBEFHLL() {
-        return unk3300FIICLBEFHLL_;
+      public int getDefebhbifge() {
+        return defebhbifge_;
       }
       /**
-       * <code>uint32 Unk3300_FIICLBEFHLL = 7;</code>
-       * @param value The unk3300FIICLBEFHLL to set.
+       * <code>uint32 defebhbifge = 6;</code>
+       * @param value The defebhbifge to set.
        * @return This builder for chaining.
        */
-      public Builder setUnk3300FIICLBEFHLL(int value) {
+      public Builder setDefebhbifge(int value) {
         
-        unk3300FIICLBEFHLL_ = value;
+        defebhbifge_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 Unk3300_FIICLBEFHLL = 7;</code>
+       * <code>uint32 defebhbifge = 6;</code>
        * @return This builder for chaining.
        */
-      public Builder clearUnk3300FIICLBEFHLL() {
+      public Builder clearDefebhbifge() {
         
-        unk3300FIICLBEFHLL_ = 0;
+        defebhbifge_ = 0;
         onChanged();
         return this;
       }
@@ -586,10 +586,9 @@ public final class FishInfoOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\016FishInfo.proto\"D\n\010FishInfo\022\033\n\023Unk3300_" +
-      "AKFBFEDCELN\030\016 \001(\r\022\033\n\023Unk3300_FIICLBEFHLL" +
-      "\030\007 \001(\rB\033\n\031emu.grasscutter.net.protob\006pro" +
-      "to3"
+      "\n\016FishInfo.proto\"4\n\010FishInfo\022\023\n\013pjkdcbfh" +
+      "aoo\030\004 \001(\r\022\023\n\013defebhbifge\030\006 \001(\rB\033\n\031emu.gr" +
+      "asscutter.net.protob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -600,7 +599,7 @@ public final class FishInfoOuterClass {
     internal_static_FishInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_FishInfo_descriptor,
-        new java.lang.String[] { "Unk3300AKFBFEDCELN", "Unk3300FIICLBEFHLL", });
+        new java.lang.String[] { "Pjkdcbfhaoo", "Defebhbifge", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
