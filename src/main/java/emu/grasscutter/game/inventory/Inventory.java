@@ -94,7 +94,7 @@ public class Inventory extends BasePlayerManager implements Iterable<GameItem> {
         GameItem result = putItem(item);
 
         if (result != null) {
-            getPlayer().getBattlePassManager().triggerMission(WatcherTriggerType.TRIGGER_OBTAIN_MATERIAL_NUM, result.getItemId(), result.getCount());
+            //getPlayer().getBattlePassManager().triggerMission(WatcherTriggerType.TRIGGER_OBTAIN_MATERIAL_NUM, result.getItemId(), result.getCount());
             getPlayer().sendPacket(new PacketStoreItemChangeNotify(result));
             return true;
         }
@@ -500,7 +500,7 @@ public class Inventory extends BasePlayerManager implements Iterable<GameItem> {
                 boolean hasEquipped = false;
 
                 if (avatar != null) {
-                    hasEquipped = avatar.equipItem(item, false);
+                    //hasEquipped = avatar.equipItem(item, false);
                 }
 
                 if (!hasEquipped) {

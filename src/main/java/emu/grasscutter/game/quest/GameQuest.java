@@ -54,7 +54,6 @@ public class GameQuest {
         this.mainQuest = mainQuest;
         this.subQuestId = questData.getId();
         this.mainQuestId = questData.getMainId();
-        this.questData = questData;
         this.state = QuestState.QUEST_STATE_UNSTARTED;
         this.triggerData = new HashMap<>();
         this.triggers = new HashMap<>();

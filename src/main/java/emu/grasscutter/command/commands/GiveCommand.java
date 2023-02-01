@@ -224,7 +224,7 @@ public final class GiveCommand implements CommandHandler {
         avatar.setPromoteLevel(promoteLevel);
         avatar.getSkillDepot().getSkillsAndEnergySkill().forEach(id -> avatar.setSkillLevel(id, skillLevel));
         avatar.forceConstellationLevel(constellation);
-        avatar.recalcStats(true);
+        //avatar.recalcStats(true);
         avatar.save();
         return avatar;
     }

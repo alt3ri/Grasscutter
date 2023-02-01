@@ -351,7 +351,7 @@ public class Avatar {
                 otherAvatar.equipItem(toSwap, false);
             }
             // Recalc
-            otherAvatar.recalcStats();
+            //otherAvatar.recalcStats();
         } else if (getEquips().containsKey(itemEquipType.getValue())) {
             // Unequip item in current slot if it exists
             unequipItem(itemEquipType);
@@ -391,7 +391,7 @@ public class Avatar {
     }
 
     public void recalcStats() {
-        recalcStats(false);
+        //recalcStats(false);
     }
 
     public void recalcStats(boolean forceSendAbilityChange) {
@@ -413,7 +413,7 @@ public class Avatar {
         float hpPercent = this.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP) <= 0 ? 1f : this.getFightProperty(FightProperty.FIGHT_PROP_CUR_HP) / this.getFightProperty(FightProperty.FIGHT_PROP_MAX_HP);
 
         // Store current energy value for later
-        float currentEnergy = (this.getSkillDepot() != null) ? this.getFightProperty(this.getSkillDepot().getElementType().getCurEnergyProp()) : 0f;
+        //float currentEnergy = (this.getSkillDepot() != null) ? this.getFightProperty(this.getSkillDepot().getElementType().getCurEnergyProp()) : 0f;
 
         // Clear properties
         this.getFightProperties().clear();
@@ -433,7 +433,7 @@ public class Avatar {
         }
 
         // Set energy usage
-        setCurrentEnergy(currentEnergy);
+        //setCurrentEnergy(currentEnergy);
 
         // Artifacts
         for (int slotId = 1; slotId <= 5; slotId++) {
